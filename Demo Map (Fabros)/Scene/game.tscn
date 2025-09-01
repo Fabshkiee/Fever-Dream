@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1roet5u5sxyq"]
+
+[ext_resource type="PackedScene" uid="uid://rqbmeut4qd5e" path="res://Scene/kill_zone.tscn" id="12_0ka5k"]
+[ext_resource type="PackedScene" uid="uid://cssq3ub6yqeel" path="res://Scene/germs.tscn" id="13_ha7wd"]
+[ext_resource type="PackedScene" uid="uid://djeltf4whquc5" path="res://Scene/Character.tscn" id="13_yjs1f"]
+[ext_resource type="PackedScene" uid="uid://bar2bhy1mtejr" path="res://Scene/color_rect.tscn" id="14_yjs1f"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ha7wd"]
+distance = -1.0
+
+[node name="GAME" type="Node2D"]
+position = Vector2(1129, -180)
+
+[node name="KillZone" parent="." instance=ExtResource("12_0ka5k")]
+position = Vector2(1, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape2D_ha7wd")
+
+[node name="Germs" parent="." instance=ExtResource("13_ha7wd")]
+position = Vector2(-540, -12)
+
+[node name="Main Character" parent="." instance=ExtResource("13_yjs1f")]
+position = Vector2(-1112, 201)
+scale = Vector2(0.139262, 0.173457)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -67.0
+offset_right = 241.0
+offset_bottom = -25.0
+grow_vertical = 0
+max_value = 3.0
+
+[node name="FadeTransition" parent="." instance=ExtResource("14_yjs1f")]
+visible = false

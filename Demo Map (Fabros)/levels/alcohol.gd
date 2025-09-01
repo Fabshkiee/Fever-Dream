@@ -1,28 +1,45 @@
 extends Node2D
 
-@onready var prompt_arrow = $Arrow  
-@onready var prompt_label = $Label   
+# Corrected node name to lowercase 'arrow' based on your scene tree
+@onready var prompt_arrow = $arrow
+@onready var prompt_label = $Label
+
 var player_near = false
 
 func _ready():
+	print("Prompt Arrow: ", prompt_arrow)
+	print("Prompt Label: ", prompt_label)
+
+	# Start with both hidden
+	if prompt_label:
+		prompt_label.visible = false
+
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body):
-	if body.name == "Player":   
+	print("Body entered: ", body.name)
+	if body.name == "Nicole":
+		print("Player has entered! Toggling label")
 		player_near = true
-		prompt_arrow.visible = true
-		prompt_label.visible = true
+		if prompt_label:
+			prompt_label.visible = true
 
 func _on_body_exited(body):
-	if body.name == "Player":
+	print("Body exited: ", body.name)
+	if body.name == "Nicole":
+		print("Player has exited. Hiding label and arrow.")
 		player_near = false
-		prompt_arrow.visible = false
-		prompt_label.visible = false
+		if prompt_label:
+			prompt_label.visible = false
 
-func _process(delta):
-	if player_near and Input.is_action_just_pressed("interact"): 
+func _process(_delta):
+	# The Dialogic logic
+	if player_near and Input.is_action_just_pressed("interact"):
 		show_dialog()
 
 func show_dialog():
+	if prompt_label:
+		prompt_label.visible = false
+
 	Dialogic.start("alcohol_fact")

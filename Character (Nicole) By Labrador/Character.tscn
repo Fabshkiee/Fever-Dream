@@ -4463,7 +4463,7 @@ offset = Vector2(-180, 573.333)
 
 [node name="Shoe2" type="Sprite2D" parent="Nicole/Character/Body"]
 position = Vector2(980.973, 506.103)
-rotation = -0.947404
+rotation = -0.818398
 scale = Vector2(0.999804, 0.999804)
 texture = ExtResource("7_iu5xb")
 offset = Vector2(-140, -1350)
@@ -4518,7 +4518,7 @@ texture = ExtResource("14_gw0m8")
 offset = Vector2(4.56543, 817.873)
 
 [node name="Melee" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(-100.609, 120.719)
+position = Vector2(-100.608, 120.719)
 rotation = 0.569808
 scale = Vector2(9.99906e-06, 9.99906e-06)
 texture = ExtResource("15_b2lkh")
