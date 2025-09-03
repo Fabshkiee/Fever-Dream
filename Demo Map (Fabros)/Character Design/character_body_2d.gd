@@ -1,16 +1,53 @@
 extends CharacterBody2D
 
 signal player_died
+signal infection_changed(infection_level: float)  # Signal for infection updates
 
 var health: int = 3
+var infection_level: float = 0.0  # Tracks infection from 0 to 100
 var is_dead: bool = false
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
+func _ready() -> void:
+	add_to_group("player")
+	if anim_tree == null:
+		push_error("AnimationTree not found at $AnimationTree. Update the path or add one.")
+	else:
+		anim_tree.active = true
+		state_machine = anim_tree["parameters/playback"]
+	if flip_node == null:
+		flip_node = get_node_or_null("Skeleton2D")
+		if flip_node == null:
+			flip_node = get_node_or_null("Sprite2D")
+		if flip_node == null:
+			flip_node = get_node_or_null("AnimatedSprite2D")
+		if flip_node == null:
+			push_error("Flip node not set/found. In the Inspector, set 'Flip Node' to your Skeleton2D.")
+	# Reset state
+	is_dead = false
+	health = 5
+	infection_level = 0.0
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(1, true)
+	var infection_bar = get_node_or_null("/root/Node2D/CanvasLayer/InfectionBar")
+	if infection_bar == null:
+		push_error("Player: InfectionBar not found at /root/Node2D/CanvasLayer/InfectionBar. Please check the node path.")
+	else:
+		if not infection_bar.is_connected("infection_maxed", Callable(self, "die")):
+			infection_bar.connect("infection_maxed", Callable(self, "die"))
+			print("Player: Connected to infection_maxed signal")
+		infection_bar.reset_infection()
+		emit_signal("infection_changed", infection_level)
+		print("Player: Called reset_infection and emitted infection_changed")
+	print("Player reset: health=%d, infection=%.1f, is_dead=%s" % [health, is_dead])
 
 func apply_hit() -> void:
 	if is_dead:
 		return
 	health -= 1
-	print("Player hit! Health: %d" % health)
+	infection_level = min(infection_level + 20.0, 100.0)  # Increase by 20 per hit
+	print("Player: apply_hit called, health=%d, infection=%.1f" % [health, infection_level])
+	emit_signal("infection_changed", infection_level)
 	if health <= 0:
 		die()
 
@@ -44,27 +81,6 @@ var canPick: bool = true
 var is_dashing := false
 var dash_timer := 0.0
 var facing_dir := 1  # 1 = right, -1 = left
-
-func _ready() -> void:
-	add_to_group("player")  # Ensure player is in "player" group
-	if anim_tree == null:
-		push_error("AnimationTree not found at $AnimationTree. Update the path or add one.")
-	else:
-		anim_tree.active = true
-		state_machine = anim_tree["parameters/playback"]
-	if flip_node == null:
-		flip_node = get_node_or_null("Skeleton2D")
-		if flip_node == null:
-			flip_node = get_node_or_null("Sprite2D")
-		if flip_node == null:
-			flip_node = get_node_or_null("AnimatedSprite2D")
-		if flip_node == null:
-			push_error("Flip node not set/found. In the Inspector, set 'Flip Node' to your Skeleton2D.")
-	# Reset state to ensure movement is possible
-	is_dead = false
-	health = 3
-	set_collision_layer_value(1, true)
-	set_collision_mask_value(1, true)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://dbrh5t2nwor5i"]
+[gd_scene load_steps=114 format=4 uid="uid://dbrh5t2nwor5i"]
 
 [ext_resource type="Texture2D" uid="uid://c4jon837mdvhd" path="res://tileset/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 5.png" id="1_0rg8l"]
 [ext_resource type="Texture2D" uid="uid://bholdelxmvj6v" path="res://tileset/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 4.png" id="2_6w4ab"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://beykxwfv7jwvw" path="res://Character Design/NewChar/Shoulder1.png" id="30_rieqb"]
 [ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="31_axo3d"]
 [ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Character Design/ANIMS/AttackM.res" id="32_0h05h"]
+[ext_resource type="Script" uid="uid://dnva8m1uim2hk" path="res://levels/infectbar.gd" id="35_m3pju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upde5"]
 texture = ExtResource("6_5mwf5")
@@ -4454,6 +4455,11 @@ graph_offset = Vector2(-24.7334, -457.376)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e78uj"]
 distance = -229.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3pju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1xos"]
+bg_color = Color(0.918653, 0.439634, 0.269085, 1)
+
 [node name="base_level" type="Node2D"]
 
 [node name="GandalfHardcoreBackgroundLayersLayer5" type="Sprite2D" parent="."]
@@ -4671,8 +4677,8 @@ offset = Vector2(-180, 573.333)
 
 [node name="Shoe2" type="Sprite2D" parent="Nicole/Character/Body"]
 position = Vector2(1054.57, 638.785)
-rotation = -0.927296
-scale = Vector2(0.999759, 0.999759)
+rotation = -1.27368
+scale = Vector2(0.999755, 0.999755)
 texture = ExtResource("19_n1xos")
 offset = Vector2(-140, -1350)
 
@@ -4796,7 +4802,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Nicole/Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999833, 0.999833)
+scale = Vector2(0.999829, 0.999829)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Nicole/Character/Movements/Hip2/Knee2/Ankle2"]
@@ -4923,6 +4929,19 @@ shape = SubResource("WorldBoundaryShape2D_e78uj")
 [node name="GERMS" parent="." instance=ExtResource("17_e78uj")]
 position = Vector2(1398, -86)
 scale = Vector2(0.627912, 0.627912)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Infectbar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 108.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_m3pju")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n1xos")
+script = ExtResource("35_m3pju")
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="timeout" from="KillZone/Timer" to="KillZone" method="_on_timer_timeout"]

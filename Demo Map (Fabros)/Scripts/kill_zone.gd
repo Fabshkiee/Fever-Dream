@@ -7,14 +7,14 @@ func _ready():
 	if player and player.has_signal("player_died"):
 		if not player.is_connected("player_died", Callable(self, "_on_player_died")):
 			player.connect("player_died", Callable(self, "_on_player_died").bind(player))
-	# Ensure timer is configured and connected
 	if timer == null:
 		push_error("Timer node not found at $Timer. Please add a Timer node as a child.")
 	else:
 		if not timer.is_connected("timeout", Callable(self, "_on_timer_timeout")):
 			timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-		timer.one_shot = true  # Ensure timer only triggers once
-		timer.wait_time = 1.0  # Set a default wait time (adjust as needed)
+		timer.one_shot = true
+		timer.wait_time = 1.0
+		print("KillZone Timer initialized: wait_time=%.1f" % timer.wait_time)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("apply_hit"):
@@ -28,14 +28,15 @@ func _on_player_died(body: Node2D) -> void:
 	Engine.time_scale = 0.5
 	if timer != null:
 		timer.start()
+		print("KillZone timer started")
 	else:
 		push_error("Timer node is missing. Scene will not reload.")
-		# Fallback: reload immediately if timer is missing
 		Engine.time_scale = 1.0
 		is_processing_death = false
 		get_tree().reload_current_scene()
 
 func _on_timer_timeout() -> void:
+	print("KillZone timer timeout, reloading scene")
 	Engine.time_scale = 1.0
 	is_processing_death = false
 	if get_tree() != null:
