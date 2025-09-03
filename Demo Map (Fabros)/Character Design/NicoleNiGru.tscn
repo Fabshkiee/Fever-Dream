@@ -2753,7 +2753,7 @@ offset = Vector2(4.56543, 817.873)
 [node name="Melee" type="Sprite2D" parent="Character/Body"]
 position = Vector2(10852.1, 10103.2)
 rotation = -2.11944
-scale = Vector2(9.99887e-06, 9.99887e-06)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("13_m0mlf")
 offset = Vector2(-853.896, 589.268)
 
