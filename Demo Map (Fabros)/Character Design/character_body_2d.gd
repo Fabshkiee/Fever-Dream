@@ -55,6 +55,7 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	_travel("Dead")
 	print("You Died!!")
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
@@ -128,6 +129,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = dash_speed * facing_dir
 		_travel("Dash")
 	move_and_slide()
+	
+	
 
 func _travel(state: String) -> void:
 	if state_machine != null:
