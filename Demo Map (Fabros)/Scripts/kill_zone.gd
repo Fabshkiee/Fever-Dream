@@ -1,5 +1,6 @@
 extends Area2D
 @onready var timer: Timer = $Timer
+@onready var FlashTimer: Timer = $Timer2
 var is_processing_death: bool = false
 
 func _ready():
@@ -20,6 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("apply_hit"):
 		body.apply_hit()
 		monitoring = false
+
 
 func _on_player_died(body: Node2D) -> void:
 	if is_processing_death:

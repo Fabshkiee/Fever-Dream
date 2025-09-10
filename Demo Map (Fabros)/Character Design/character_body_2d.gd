@@ -7,6 +7,9 @@ var health: int = 3
 var infection_level: float = 0.0  # Tracks infection from 0 to 100
 var is_dead: bool = false
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var wrist_sprite: Sprite2D = $Character/Body/Wrist2
+var hit_effect_strength: float = 1.0
+var hit_effect_decay: float = 1.0 # how fast it fades back to 0
 
 func _ready() -> void:
 	add_to_group("player")
@@ -41,10 +44,22 @@ func _ready() -> void:
 		print("Player: Called reset_infection and emitted infection_changed")
 	print("Player reset: health=%d, infection=%.1f, is_dead=%s" % [health, is_dead])
 
+
+func _process(delta):
+	if hit_effect_strength > 0.0:
+		hit_effect_strength = max(hit_effect_strength - delta * hit_effect_decay, 0.0)
+		wrist_sprite.material.set_shader_parameter("hit_effect", hit_effect_strength)
+
+func apply_hit_effect():
+	hit_effect_strength = 1.0
+	wrist_sprite.material.set_shader_parameter("hit_effect", hit_effect_strength)
+
+
 func apply_hit() -> void:
 	if is_dead:
 		return
 	health -= 1
+	apply_hit_effect()
 	infection_level = min(infection_level + 20.0, 100.0)  # Increase by 20 per hit
 	print("Player: apply_hit called, health=%d, infection=%.1f" % [health, infection_level])
 	emit_signal("infection_changed", infection_level)
