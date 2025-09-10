@@ -11,8 +11,20 @@ var is_dead: bool = false
 var hit_effect_strength: float = 1.0
 var hit_effect_decay: float = 1.0 # how fast it fades back to 0
 
+# Add a timer for infection reduction
+@onready var infection_reduction_timer: Timer
+
 func _ready() -> void:
 	add_to_group("player")
+	
+	# Create and setup the infection reduction timer
+	infection_reduction_timer = Timer.new()
+	add_child(infection_reduction_timer)
+	infection_reduction_timer.wait_time = 10.0  # 10 seconds
+	infection_reduction_timer.one_shot = false  # Repeat every 10 seconds
+	infection_reduction_timer.timeout.connect(_on_infection_reduction_timeout)
+	infection_reduction_timer.start()
+	
 	if anim_tree == null:
 		push_error("AnimationTree not found at $AnimationTree. Update the path or add one.")
 	else:
@@ -42,7 +54,15 @@ func _ready() -> void:
 		infection_bar.reset_infection()
 		emit_signal("infection_changed", infection_level)
 		print("Player: Called reset_infection and emitted infection_changed")
-	print("Player reset: health=%d, infection=%.1f, is_dead=%s" % [health, is_dead])
+	print("Player reset: health=%d, infection=%.1f, is_dead=%s" % [health, infection_level, is_dead])
+
+
+func _on_infection_reduction_timeout():
+	if not is_dead and infection_level > 0:
+		# Reduce infection by 10% (but not below 0)
+		infection_level = max(infection_level - 10.0, 0.0)
+		print("Infection reduced by 10%: ", infection_level)
+		emit_signal("infection_changed", infection_level)
 
 
 func _process(delta):
@@ -58,20 +78,26 @@ func apply_hit_effect():
 func apply_hit() -> void:
 	if is_dead:
 		return
-	health -= 1
+	
+	# Only increase infection, don't decrease health for death
 	apply_hit_effect()
 	infection_level = min(infection_level + 20.0, 100.0)  # Increase by 20 per hit
-	print("Player: apply_hit called, health=%d, infection=%.1f" % [health, infection_level])
+	print("Player: apply_hit called, infection=%.1f/100" % infection_level)
 	emit_signal("infection_changed", infection_level)
-	if health <= 0:
-		die()
+	
+	# Note: Death is now handled by the infection_bar's "infection_maxed" signal
+	# which calls die() when infection reaches 100%
+
 
 func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	# Stop the infection reduction timer when player dies
+	if infection_reduction_timer:
+		infection_reduction_timer.stop()
 	_travel("Dead")
-	print("You Died!!")
+	print("You Died from Infection!! Infection level: %.1f/100" % infection_level)
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	emit_signal("player_died")

@@ -4690,7 +4690,7 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Nicole/Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.785)
-rotation = -0.758445
+rotation = -0.815152
 scale = Vector2(0.999756, 0.999756)
 texture = ExtResource("19_n1xos")
 offset = Vector2(-140, -1350)
