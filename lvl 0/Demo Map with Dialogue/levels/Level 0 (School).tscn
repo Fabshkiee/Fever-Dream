@@ -5,39 +5,39 @@
 [ext_resource type="Texture2D" uid="uid://b6y52i10psc2a" path="res://tileset/GandalfHardcore City Tiles/Building Tiles 32x32.png" id="2_2pshw"]
 [ext_resource type="Texture2D" uid="uid://dm78mgf34olwg" path="res://tileset/city 1/2.png" id="2_hnvlc"]
 [ext_resource type="Texture2D" uid="uid://byrmcu4j2pgch" path="res://tileset/city 1/3.png" id="3_4yqf6"]
-[ext_resource type="Texture2D" uid="uid://b2trtg8kkq3u1" path="res://Character Design/NewChar/Wrist2.png" id="3_36id7"]
-[ext_resource type="Texture2D" uid="uid://4unvx6tmeby" path="res://Character Design/NewChar/Elbow2.png" id="4_2pshw"]
+[ext_resource type="Texture2D" uid="uid://b2trtg8kkq3u1" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Wrist2.png" id="3_36id7"]
+[ext_resource type="Texture2D" uid="uid://4unvx6tmeby" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Elbow2.png" id="4_2pshw"]
 [ext_resource type="Texture2D" uid="uid://d2sptp5786boa" path="res://tileset/school-asset.png" id="4_3txv8"]
-[ext_resource type="Texture2D" uid="uid://cjp35oq5ukjdq" path="res://Character Design/NewChar/Shoulder2.png" id="5_gc26r"]
+[ext_resource type="Texture2D" uid="uid://cjp35oq5ukjdq" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoulder2.png" id="5_gc26r"]
 [ext_resource type="Texture2D" uid="uid://dummr4keaipxf" path="res://tileset/basketball.png" id="6_fglcj"]
-[ext_resource type="Texture2D" uid="uid://tp5wxcr1e20" path="res://Character Design/NewChar/Shoe2.png" id="6_ypfng"]
-[ext_resource type="Texture2D" uid="uid://ptquufb58gv6" path="res://Character Design/NewChar/Knee2.png" id="7_i83na"]
+[ext_resource type="Texture2D" uid="uid://tp5wxcr1e20" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoe2.png" id="6_ypfng"]
+[ext_resource type="Texture2D" uid="uid://ptquufb58gv6" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Knee2.png" id="7_i83na"]
 [ext_resource type="Texture2D" uid="uid://bjknmhpp5fu5" path="res://tileset/GandalfHardcore City Tiles/Decoration 32x32.png" id="7_losua"]
-[ext_resource type="Texture2D" uid="uid://bp1woqlhafjlb" path="res://Character Design/NewChar/Hip2.png" id="8_ff12d"]
-[ext_resource type="Texture2D" uid="uid://br0o65teix1xq" path="res://Character Design/NewChar/Shoe1.png" id="9_p4xu5"]
+[ext_resource type="Texture2D" uid="uid://bp1woqlhafjlb" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Hip2.png" id="8_ff12d"]
+[ext_resource type="Texture2D" uid="uid://br0o65teix1xq" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoe1.png" id="9_p4xu5"]
 [ext_resource type="Texture2D" uid="uid://dsdwe6afq16rx" path="res://tileset/Park Zone/3 Objects/Fence/6.png" id="10_2brk8"]
-[ext_resource type="Texture2D" uid="uid://clr5p1ff68j0q" path="res://Character Design/NewChar/Knee1.png" id="10_6bulo"]
+[ext_resource type="Texture2D" uid="uid://clr5p1ff68j0q" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Knee1.png" id="10_6bulo"]
 [ext_resource type="Texture2D" uid="uid://c475n5si4ksc7" path="res://tileset/Park Zone/3 Objects/Fence/7.png" id="11_8xv0i"]
-[ext_resource type="Texture2D" uid="uid://dt10ew8behfg5" path="res://Character Design/NewChar/Hip1.png" id="11_y6m2a"]
+[ext_resource type="Texture2D" uid="uid://dt10ew8behfg5" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Hip1.png" id="11_y6m2a"]
 [ext_resource type="Texture2D" uid="uid://craaco8xutu63" path="res://tileset/Park Zone/3 Objects/Bushes/13.png" id="12_aimy7"]
-[ext_resource type="Texture2D" uid="uid://bmwjiwtimm1b2" path="res://Character Design/NewChar/Body.png" id="12_han4y"]
+[ext_resource type="Texture2D" uid="uid://bmwjiwtimm1b2" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Body.png" id="12_han4y"]
 [ext_resource type="Texture2D" uid="uid://chqw4v48h24nb" path="res://tileset/Park Zone/3 Objects/Benches/2.png" id="13_4yc2f"]
-[ext_resource type="Texture2D" uid="uid://b3xa7t5sut5wf" path="res://Character Design/NewChar/Head.png" id="13_mmqmx"]
+[ext_resource type="Texture2D" uid="uid://b3xa7t5sut5wf" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Head.png" id="13_mmqmx"]
 [ext_resource type="Script" uid="uid://ccgmfy07qo5nx" path="res://levels/bingo_plus.gd" id="13_u1fec"]
 [ext_resource type="Texture2D" uid="uid://6kiv2vveprjk" path="res://tileset/Park Zone/3 Objects/Other/Skateboard4.png" id="14_edm60"]
-[ext_resource type="Texture2D" uid="uid://cht1phjnsxjgq" path="res://Character Design/pixel_art_large (1).png" id="14_osei5"]
-[ext_resource type="Texture2D" uid="uid://bw2cxjwvgl1vb" path="res://Character Design/NewChar/Wrist1.png" id="15_kic44"]
+[ext_resource type="Texture2D" uid="uid://cht1phjnsxjgq" path="res://Map Assets - Fons/Character Design/Character Design/pixel_art_large (1).png" id="14_osei5"]
+[ext_resource type="Texture2D" uid="uid://bw2cxjwvgl1vb" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Wrist1.png" id="15_kic44"]
 [ext_resource type="Texture2D" uid="uid://dnskqj5f13tnl" path="res://tileset/Park Zone/3 Objects/Stones/1.png" id="15_u1fec"]
-[ext_resource type="Texture2D" uid="uid://cbjecsluto7r7" path="res://Character Design/NewChar/Elbow1.png" id="16_xxb6f"]
+[ext_resource type="Texture2D" uid="uid://cbjecsluto7r7" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Elbow1.png" id="16_xxb6f"]
 [ext_resource type="Texture2D" uid="uid://bsdyjivxl6qhu" path="res://tileset/Park Zone/3 Objects/Bushes/16.png" id="16_y041h"]
 [ext_resource type="Texture2D" uid="uid://ojuj5568wvdd" path="res://tileset/Park Zone/3 Objects/Bushes/20.png" id="17_3q0vr"]
-[ext_resource type="Texture2D" uid="uid://beykxwfv7jwvw" path="res://Character Design/NewChar/Shoulder1.png" id="17_qd6d0"]
-[ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="18_ml6s8"]
-[ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Character Design/ANIMS/AttackM.res" id="19_dlopq"]
+[ext_resource type="Texture2D" uid="uid://beykxwfv7jwvw" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoulder1.png" id="17_qd6d0"]
+[ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Map Assets - Fons/Character Design/Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="18_ml6s8"]
+[ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Map Assets - Fons/Character Design/Character Design/ANIMS/AttackM.res" id="19_dlopq"]
 [ext_resource type="Texture2D" uid="uid://duob0nbn3b486" path="res://tileset/industrial/3 Objects/Ladder1.png" id="19_ndby2"]
 [ext_resource type="Texture2D" uid="uid://d3u2t7henkshg" path="res://tileset/industrial/3 Objects/Bench.png" id="20_aq32d"]
 [ext_resource type="Texture2D" uid="uid://di6j7v0i6f0tj" path="res://tileset/bawal.png" id="21_gc26r"]
-[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Design/character_body_2d.gd" id="25_aimy7"]
+[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Map Assets - Fons/Character Design/Character Design/character_body_2d.gd" id="25_aimy7"]
 [ext_resource type="Texture2D" uid="uid://c251xnuyjoy6t" path="res://tileset/67.png" id="27_6bulo"]
 [ext_resource type="Texture2D" uid="uid://c8wy8ftt6q3hi" path="res://tileset/nicole room.png" id="27_aq32d"]
 [ext_resource type="Texture2D" uid="uid://bbboetnjrswuq" path="res://tileset/billboard/1 Ad/2 Billboard/Pillar2.png" id="37_bwd2i"]
@@ -4447,8 +4447,8 @@ offset = Vector2(-180, 573.333)
 
 [node name="Shoe2" type="Sprite2D" parent="Nicole/Character/Body"]
 position = Vector2(1054.56, 638.781)
-rotation = -1.00934
-scale = Vector2(0.999755, 0.999755)
+rotation = -1.00831
+scale = Vector2(0.999754, 0.999754)
 texture = ExtResource("6_ypfng")
 offset = Vector2(-140, -1350)
 
@@ -4504,7 +4504,7 @@ offset = Vector2(4.56543, 817.873)
 [node name="Melee" type="Sprite2D" parent="Nicole/Character/Body"]
 position = Vector2(-127.898, 233.188)
 rotation = 0.569808
-scale = Vector2(9.9989e-06, 9.9989e-06)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("14_osei5")
 offset = Vector2(-853.896, 589.268)
 
@@ -4572,7 +4572,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Nicole/Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999829, 0.999829)
+scale = Vector2(0.999828, 0.999828)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Nicole/Character/Movements/Hip2/Knee2/Ankle2"]

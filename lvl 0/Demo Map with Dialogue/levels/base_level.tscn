@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://dbrh5t2nwor5i"]
+[gd_scene load_steps=116 format=4 uid="uid://dbrh5t2nwor5i"]
 
 [ext_resource type="Texture2D" uid="uid://c4jon837mdvhd" path="res://tileset/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 5.png" id="1_0rg8l"]
 [ext_resource type="Texture2D" uid="uid://bholdelxmvj6v" path="res://tileset/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 4.png" id="2_6w4ab"]
@@ -14,26 +14,28 @@
 [ext_resource type="Script" uid="uid://bh0pn608gctv7" path="res://levels/alcohol.gd" id="12_406qh"]
 [ext_resource type="PackedScene" uid="uid://bhriymyck6kg7" path="res://animated_env/campfire.tscn" id="12_upde5"]
 [ext_resource type="Texture2D" uid="uid://dqe3emrnnik6r" path="res://Chaarc/bottle.png" id="13_jldy4"]
-[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Design/character_body_2d.gd" id="15_yyyhu"]
+[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Map Assets - Fons/Character Design/Character Design/character_body_2d.gd" id="15_yyyhu"]
 [ext_resource type="Script" uid="uid://bwnb80cpqm3cv" path="res://Scripts/kill_zone.gd" id="16_hd0gu"]
-[ext_resource type="Texture2D" uid="uid://b2trtg8kkq3u1" path="res://Character Design/NewChar/Wrist2.png" id="16_ygdl3"]
+[ext_resource type="Shader" uid="uid://jfmg4mapf15y" path="res://levels/base_level.gdshader" id="16_n1xos"]
+[ext_resource type="Texture2D" uid="uid://b2trtg8kkq3u1" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Wrist2.png" id="16_ygdl3"]
 [ext_resource type="PackedScene" uid="uid://cssq3ub6yqeel" path="res://Scene/germs.tscn" id="17_e78uj"]
-[ext_resource type="Texture2D" uid="uid://4unvx6tmeby" path="res://Character Design/NewChar/Elbow2.png" id="17_qdvag"]
-[ext_resource type="Texture2D" uid="uid://cjp35oq5ukjdq" path="res://Character Design/NewChar/Shoulder2.png" id="18_m3pju"]
-[ext_resource type="Texture2D" uid="uid://tp5wxcr1e20" path="res://Character Design/NewChar/Shoe2.png" id="19_n1xos"]
-[ext_resource type="Texture2D" uid="uid://ptquufb58gv6" path="res://Character Design/NewChar/Knee2.png" id="20_7v2hh"]
-[ext_resource type="Texture2D" uid="uid://bp1woqlhafjlb" path="res://Character Design/NewChar/Hip2.png" id="21_77ewo"]
-[ext_resource type="Texture2D" uid="uid://br0o65teix1xq" path="res://Character Design/NewChar/Shoe1.png" id="22_i54ce"]
-[ext_resource type="Texture2D" uid="uid://clr5p1ff68j0q" path="res://Character Design/NewChar/Knee1.png" id="23_bulfy"]
-[ext_resource type="Texture2D" uid="uid://dt10ew8behfg5" path="res://Character Design/NewChar/Hip1.png" id="24_yha4b"]
-[ext_resource type="Texture2D" uid="uid://bmwjiwtimm1b2" path="res://Character Design/NewChar/Body.png" id="25_nkpol"]
-[ext_resource type="Texture2D" uid="uid://b3xa7t5sut5wf" path="res://Character Design/NewChar/Head.png" id="26_2kd00"]
-[ext_resource type="Texture2D" uid="uid://cht1phjnsxjgq" path="res://Character Design/pixel_art_large (1).png" id="27_xxq71"]
-[ext_resource type="Texture2D" uid="uid://bw2cxjwvgl1vb" path="res://Character Design/NewChar/Wrist1.png" id="28_67d3x"]
-[ext_resource type="Texture2D" uid="uid://cbjecsluto7r7" path="res://Character Design/NewChar/Elbow1.png" id="29_nkjq3"]
-[ext_resource type="Texture2D" uid="uid://beykxwfv7jwvw" path="res://Character Design/NewChar/Shoulder1.png" id="30_rieqb"]
-[ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="31_axo3d"]
-[ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Character Design/ANIMS/AttackM.res" id="32_0h05h"]
+[ext_resource type="Texture2D" uid="uid://4unvx6tmeby" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Elbow2.png" id="17_qdvag"]
+[ext_resource type="Texture2D" uid="uid://cjp35oq5ukjdq" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoulder2.png" id="18_m3pju"]
+[ext_resource type="Texture2D" uid="uid://tp5wxcr1e20" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoe2.png" id="19_n1xos"]
+[ext_resource type="Texture2D" uid="uid://ptquufb58gv6" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Knee2.png" id="20_7v2hh"]
+[ext_resource type="Texture2D" uid="uid://bp1woqlhafjlb" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Hip2.png" id="21_77ewo"]
+[ext_resource type="Texture2D" uid="uid://br0o65teix1xq" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoe1.png" id="22_i54ce"]
+[ext_resource type="Texture2D" uid="uid://clr5p1ff68j0q" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Knee1.png" id="23_bulfy"]
+[ext_resource type="Texture2D" uid="uid://dt10ew8behfg5" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Hip1.png" id="24_yha4b"]
+[ext_resource type="Texture2D" uid="uid://bmwjiwtimm1b2" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Body.png" id="25_nkpol"]
+[ext_resource type="Texture2D" uid="uid://b3xa7t5sut5wf" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Head.png" id="26_2kd00"]
+[ext_resource type="Texture2D" uid="uid://cht1phjnsxjgq" path="res://Map Assets - Fons/Character Design/Character Design/pixel_art_large (1).png" id="27_xxq71"]
+[ext_resource type="Texture2D" uid="uid://bw2cxjwvgl1vb" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Wrist1.png" id="28_67d3x"]
+[ext_resource type="Texture2D" uid="uid://cbjecsluto7r7" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Elbow1.png" id="29_nkjq3"]
+[ext_resource type="Texture2D" uid="uid://beykxwfv7jwvw" path="res://Map Assets - Fons/Character Design/Character Design/NewChar/Shoulder1.png" id="30_rieqb"]
+[ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Map Assets - Fons/Character Design/Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="31_axo3d"]
+[ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Map Assets - Fons/Character Design/Character Design/ANIMS/AttackM.res" id="32_0h05h"]
+[ext_resource type="Script" uid="uid://7tvb3iw4py20" path="res://levels/infectbar.gd" id="35_m3pju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upde5"]
 texture = ExtResource("6_5mwf5")
@@ -1822,6 +1824,14 @@ size = Vector2(163, 40.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixkqr"]
 size = Vector2(988.709, 3336.67)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7v2hh"]
+resource_local_to_scene = true
+shader = ExtResource("16_n1xos")
+shader_parameter/hit_effect = 0.0
+shader_parameter/shake_intensity = 10.0
+shader_parameter/flash_speed = 30.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_5k0ue"]
 enabled = true
@@ -4454,6 +4464,11 @@ graph_offset = Vector2(-24.7334, -457.376)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e78uj"]
 distance = -229.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3pju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1xos"]
+bg_color = Color(0.918653, 0.439634, 0.269085, 1)
+
 [node name="base_level" type="Node2D"]
 
 [node name="GandalfHardcoreBackgroundLayersLayer5" type="Sprite2D" parent="."]
@@ -4626,11 +4641,10 @@ frame_progress = 0.636661
 
 [node name="Nicole" type="CharacterBody2D" parent="." node_paths=PackedStringArray("flip_node")]
 visibility_layer = 3
-position = Vector2(237, -606)
+position = Vector2(237, -507)
 scale = Vector2(0.015, 0.015)
 script = ExtResource("15_yyyhu")
 speed = 120.0
-jump_force = -350.0
 gravity = 900.0
 dash_speed = 525.0
 flip_node = NodePath("Character")
@@ -4649,97 +4663,111 @@ rotation = 0.872156
 scale = Vector2(0.999926, 0.999926)
 
 [node name="Wrist2" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(279.336, -175.223)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(279.339, -175.219)
 rotation = 0.449601
 scale = Vector2(0.999907, 0.999907)
 texture = ExtResource("16_ygdl3")
 offset = Vector2(-830, 530)
 
 [node name="Elbow2" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(-47.4707, -348.645)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(-47.4707, -348.641)
 rotation = 0.449601
 scale = Vector2(0.999923, 0.999923)
 texture = ExtResource("17_qdvag")
 offset = Vector2(-466.667, 526.667)
 
 [node name="Shoulder2" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(-269.98, -519.551)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(-269.979, -519.547)
 rotation = 0.449601
 scale = Vector2(0.999981, 0.999981)
 texture = ExtResource("18_m3pju")
 offset = Vector2(-180, 573.333)
 
 [node name="Shoe2" type="Sprite2D" parent="Nicole/Character/Body"]
+material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.785)
-rotation = -1.02059
-scale = Vector2(0.999755, 0.999755)
+rotation = -0.898623
+scale = Vector2(0.999756, 0.999756)
 texture = ExtResource("19_n1xos")
 offset = Vector2(-140, -1350)
 
 [node name="Knee2" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(757.059, 296.375)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(757.058, 296.375)
 rotation = -0.790362
 scale = Vector2(0.999926, 0.999926)
 texture = ExtResource("20_7v2hh")
 offset = Vector2(-153.333, -900)
 
 [node name="Hip2" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(356.234, 128.09)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(356.231, 128.09)
 rotation = -1.01869
 scale = Vector2(0.99998, 0.99998)
 texture = ExtResource("21_77ewo")
 offset = Vector2(-66.6665, -480)
 
 [node name="Shoe1" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(802.102, 946.148)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(802.103, 946.148)
 rotation = -0.903199
 scale = Vector2(0.99994, 0.99994)
 texture = ExtResource("22_i54ce")
 offset = Vector2(260, -1343.33)
 
 [node name="Knee1" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(453.814, 640.52)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(453.813, 640.52)
 rotation = -0.903199
 scale = Vector2(0.99998, 0.99998)
 texture = ExtResource("23_bulfy")
 offset = Vector2(253.333, -873.333)
 
 [node name="Hip1" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(198.951, 261.223)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(198.951, 261.227)
 rotation = -0.903199
 scale = Vector2(1.00002, 1.00002)
 texture = ExtResource("24_yha4b")
 offset = Vector2(140, -433.333)
 
 [node name="Body2" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(318.719, 161.82)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(318.72, 161.824)
 rotation = -0.903199
 scale = Vector2(1.00003, 1.00003)
 texture = ExtResource("25_nkpol")
 offset = Vector2(-49.9998, -326.667)
 
 [node name="Head" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(-625.711, -503.02)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(-625.711, -503.016)
 rotation = -0.903199
 scale = Vector2(0.999978, 0.999978)
 texture = ExtResource("26_2kd00")
 offset = Vector2(4.56543, 817.873)
 
 [node name="Melee" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(-127.887, 233.184)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(-127.885, 233.184)
 rotation = 0.569808
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("27_xxq71")
 offset = Vector2(-853.896, 589.268)
 
 [node name="Wrist1" type="Sprite2D" parent="Nicole/Character/Body"]
-position = Vector2(-127.887, 233.184)
+material = SubResource("ShaderMaterial_7v2hh")
+position = Vector2(-127.886, 233.188)
 rotation = -2.66527
 scale = Vector2(0.99989, 0.99989)
 texture = ExtResource("28_67d3x")
 offset = Vector2(876.667, 370)
 
 [node name="Elbow1" type="Sprite2D" parent="Nicole/Character/Body"]
+material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(-434.943, 166.781)
 rotation = -2.66527
 scale = Vector2(0.99991, 0.99991)
@@ -4747,6 +4775,7 @@ texture = ExtResource("29_nkjq3")
 offset = Vector2(586.667, 470)
 
 [node name="Shoulder1" type="Sprite2D" parent="Nicole/Character/Body"]
+material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(-511.535, -138.516)
 rotation = -1.75941
 scale = Vector2(0.999971, 0.999971)
@@ -4796,7 +4825,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Nicole/Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999829, 0.999829)
+scale = Vector2(0.99983, 0.99983)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Nicole/Character/Movements/Hip2/Knee2/Ankle2"]
@@ -4914,7 +4943,7 @@ collision_mask = 3
 script = ExtResource("16_hd0gu")
 
 [node name="Timer" type="Timer" parent="KillZone"]
-wait_time = 1.7
+wait_time = 3.169
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
@@ -4923,6 +4952,19 @@ shape = SubResource("WorldBoundaryShape2D_e78uj")
 [node name="GERMS" parent="." instance=ExtResource("17_e78uj")]
 position = Vector2(1398, -86)
 scale = Vector2(0.627912, 0.627912)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Infectbar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 108.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_m3pju")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n1xos")
+script = ExtResource("35_m3pju")
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="timeout" from="KillZone/Timer" to="KillZone" method="_on_timer_timeout"]

@@ -2696,8 +2696,8 @@ offset = Vector2(-180, 573.333)
 
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 position = Vector2(1054.56, 638.779)
-rotation = -1.04952
-scale = Vector2(0.99974, 0.99974)
+rotation = -1.05157
+scale = Vector2(0.999745, 0.999745)
 texture = ExtResource("5_uoxke")
 offset = Vector2(-140, -1350)
 
@@ -2822,7 +2822,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.99983, 0.99983)
+scale = Vector2(0.999835, 0.999835)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
@@ -2933,4 +2933,4 @@ anim_player = NodePath("../Movements3")
 position = Vector2(66.6667, -4733.33)
 rotation = -0.0310427
 scale = Vector2(0.999904, 0.999904)
-zoom = Vector2(2.525, 2.525)
+zoom = Vector2(1.5, 1.5)
