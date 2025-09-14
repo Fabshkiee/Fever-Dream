@@ -1,14 +1,16 @@
-[gd_scene load_steps=67 format=3 uid="uid://dusuje7l7d2ta"]
+[gd_scene load_steps=70 format=3 uid="uid://dusuje7l7d2ta"]
 
 [ext_resource type="Script" uid="uid://cjseeyerdh0yr" path="res://slime.gd" id="1_da4t2"]
 [ext_resource type="Texture2D" uid="uid://ch3cw1m38s85u" path="res://tileset/Slimes/Untitled1_20250907151111.png" id="1_jayke"]
 [ext_resource type="Texture2D" uid="uid://42ps1fprl6ok" path="res://tileset/Slimes/Untitled9_20250909145405.png" id="2_2002g"]
 [ext_resource type="Texture2D" uid="uid://btjnqxcwe2wb0" path="res://tileset/Slimes/Untitled16_20250909182212.png" id="2_jrxk1"]
+[ext_resource type="Texture2D" uid="uid://juagmqos40sm" path="res://tileset/Slimes/Untitled14_20250909181935.png" id="3_8w6w5"]
 [ext_resource type="Texture2D" uid="uid://cnqrx1fwwbrjj" path="res://tileset/Slimes/Untitled13_20250909181608.png" id="3_alucd"]
 [ext_resource type="Texture2D" uid="uid://dsrr7p4w4hkm6" path="res://tileset/Slimes/Untitled4_20250909135323.png" id="3_bratd"]
 [ext_resource type="Texture2D" uid="uid://ck6eghsfk3hvh" path="res://tileset/Slimes/Untitled5_20250909135132.png" id="4_5b0gg"]
 [ext_resource type="Texture2D" uid="uid://bms7e58oobw87" path="res://tileset/Slimes/Untitled8_20250909140031.png" id="5_da4t2"]
 [ext_resource type="Texture2D" uid="uid://y6760gv1hfly" path="res://tileset/Slimes/slime land.png" id="9_8w6w5"]
+[ext_resource type="PackedScene" uid="uid://rqbmeut4qd5e" path="res://Scene/kill_zone.tscn" id="10_jrxk1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umduo"]
 atlas = ExtResource("2_jrxk1")
@@ -65,6 +67,10 @@ region = Rect2(13860, 0, 1155, 385)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6upud"]
 atlas = ExtResource("2_jrxk1")
 region = Rect2(15015, 0, 1155, 385)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hhig"]
+atlas = ExtResource("3_8w6w5")
+region = Rect2(0, 0, 1227, 409)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y60gu"]
 atlas = ExtResource("3_alucd")
@@ -277,6 +283,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhig")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y60gu")
 }, {
 "duration": 1.0,
@@ -311,7 +320,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -421,8 +430,9 @@ script = ExtResource("1_da4t2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_umduo")
-animation = &"idle"
-frame_progress = 0.00518839
+animation = &"hurt"
+frame = 11
+frame_progress = 0.40751
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.90735e-06, 68)
@@ -435,6 +445,13 @@ autostart = true
 [node name="SlimeHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeHitbox"]
+position = Vector2(0, 68)
+scale = Vector2(22.62, 12.9721)
+shape = SubResource("CircleShape2D_da4t2")
+
+[node name="KillZone" parent="." instance=ExtResource("10_jrxk1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(0, 68)
 scale = Vector2(22.62, 12.9721)
 shape = SubResource("CircleShape2D_da4t2")

@@ -14,7 +14,7 @@ var damage_to_deal = 20
 var is_dealing_damage: bool = false
 var dir: Vector2 = Vector2.RIGHT  # Initialize with a default direction
 const gravity = 900
-var knockback_force = -20
+var knockback_force = -50
 var is_roaming: bool = true
 
 var player: CharacterBody2D
@@ -56,21 +56,27 @@ func move(delta):
 func handle_animation():
 	var anim_sprite = $AnimatedSprite2D
 	
-	if !dead and !taking_damage and !is_dealing_damage:
+	if dead:
+		# Play death animation immediately when dead
+		if anim_sprite.animation != "death":
+			anim_sprite.play("death")
+			# Wait for death animation to finish then handle death
+			await get_tree().create_timer(1.0).timeout
+			handle_death()
+	elif !dead and taking_damage and !is_dealing_damage:
+		anim_sprite.play("hurt")
+		await get_tree().create_timer(1.0).timeout
+		taking_damage = false
+	elif !dead and !taking_damage and !is_dealing_damage:
 		anim_sprite.play("jump startup")
 		if dir.x == -1:
 			anim_sprite.flip_h = true
 		elif dir.x == 1:
 			anim_sprite.flip_h = false
-			
-	elif !dead and taking_damage and !is_dealing_damage:
-		anim_sprite.play("hurt")
-		await get_tree().create_timer(1.3).timeout
-		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false
 		anim_sprite.play("death")
-		await get_tree().create_timer(1.75).timeout
+		await get_tree().create_timer(1.0).timeout
 		handle_death()
 		
 func handle_death():
@@ -89,8 +95,9 @@ func choose(array):
 
 
 func _on_slime_hitbox_area_entered(area: Area2D) -> void:
-	var damage = Global.playerDamageAmount
-	if area == Global.playerDamageZone:
+	# Check if this is the player's damage zone AND if the player is attacking
+	if area == Global.playerDamageZone and Global.playerBody and Global.playerBody.is_attacking:
+		var damage = Global.playerDamageAmount
 		take_damage(damage)
 		
 func take_damage(damage):

@@ -2712,7 +2712,7 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.01771
+rotation = -1.23213
 scale = Vector2(0.999756, 0.999756)
 texture = ExtResource("6_ea02o")
 offset = Vector2(-140, -1350)
@@ -2848,7 +2848,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999829, 0.999829)
+scale = Vector2(0.99983, 0.99983)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
