@@ -6,6 +6,7 @@ signal infection_changed(infection_level: float)  # Signal for infection updates
 var health: int = 3
 var infection_level: float = 0.0  # Tracks infection from 0 to 100
 var is_dead: bool = false
+@onready var damage_area: Area2D = $attackArea
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var wrist_sprite: Sprite2D = $Character/Body/Wrist2
 var hit_effect_strength: float = 1.0
@@ -15,6 +16,7 @@ var hit_effect_decay: float = 1.0 # how fast it fades back to 0
 @onready var infection_reduction_timer: Timer
 
 func _ready() -> void:
+	Global.playerBody = self
 	add_to_group("player")
 	
 	# Create and setup the infection reduction timer
@@ -25,6 +27,17 @@ func _ready() -> void:
 	infection_reduction_timer.timeout.connect(_on_infection_reduction_timeout)
 	infection_reduction_timer.start()
 	
+	var damage_area = $attackArea  # Adjust the path if your node is named differently
+	if damage_area:
+		Global.playerDamageZone = damage_area
+		# Connect the area entered signal
+		if not damage_area.area_entered.is_connected(_on_damage_area_entered):
+			damage_area.area_entered.connect(_on_damage_area_entered)
+		if not damage_area.body_entered.is_connected(_on_damage_area_body_entered):
+			damage_area.body_entered.connect(_on_damage_area_body_entered)
+	else:
+		push_error("DamageArea not found as child of player")
+		
 	if anim_tree == null:
 		push_error("AnimationTree not found at $AnimationTree. Update the path or add one.")
 	else:
@@ -153,15 +166,25 @@ func _physics_process(delta: float) -> void:
 		_travel("Jump")
 	elif Input.is_action_just_pressed("ui_AttackM") and is_on_floor() and input_dir == 0 and not is_dashing:
 		_travel("AttackM_2")
+		start_attack()
+		Global.playerDamageAmount = 20
 	elif Input.is_action_just_pressed("ui_AttackM") and is_on_floor() and input_dir != 0 and not is_dashing:
 		_travel("Run_Attack")
+		start_attack()
+		Global.playerDamageAmount = 20
 	elif Input.is_action_pressed("ui_AttackM") and is_dashing:
 		_travel("Attack_Air")
+		start_attack()
+		Global.playerDamageAmount = 20
 	elif Input.is_action_just_pressed("ui_AttackM") and not is_on_floor():
 		_travel("Attack_Air")
+		start_attack()
+		Global.playerDamageAmount = 20
 	elif Input.is_action_pressed("ui_AttackR") and is_on_floor():
 		velocity.x = 0
 		_travel("AttackR")
+		start_attack()
+		Global.playerDamageAmount = 20
 	if Input.is_action_just_pressed("ui_Dash") and not is_dashing:
 		is_dashing = true
 		dash_timer = dash_time
@@ -191,3 +214,28 @@ func _set_flip_x(sign_x: int) -> void:
 	var sx := flip_node.scale.x
 	var sy := flip_node.scale.y
 	flip_node.scale = Vector2(sign_x * abs(sx if sx != 0.0 else 1.0), sy if sy != 0.0 else 1.0)
+	
+	
+# Damage area handling functions
+func _on_damage_area_entered(area: Area2D) -> void:
+	_handle_damage_target(area)
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	_handle_damage_target(body)
+
+func _handle_damage_target(target: Node) -> void:
+	# Check if the target can take damage
+	if target.has_method("take_damage"):
+		# Deal damage using the global damage amount
+		target.take_damage(Global.playerDamageAmount)
+		print("Dealt ", Global.playerDamageAmount, " damage to ", target.name)
+	elif target.is_in_group("enemy"):
+		# Alternative: if target is in enemy group but doesn't have take_damage method
+		print("Enemy detected but no take_damage method: ", target.name)
+
+func start_attack():
+	if damage_area:
+		damage_area.monitoring = true
+		# Optional: Timer to disable after short time
+		await get_tree().create_timer(0.3).timeout
+		damage_area.monitoring = false
