@@ -21,11 +21,13 @@ var player: CharacterBody2D
 var player_in_area = false
 @onready var slime_death_sfx: AudioStreamPlayer2D = $slime_death_sfx
 @onready var slime_hurt_sfx: AudioStreamPlayer2D = $slime_hurt_sfx
+@onready var slime_jump: AudioStreamPlayer2D = $slime_jump
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
 	# Start the direction timer when the slime is added to the scene
 	$direction.start()
-
+	#$AnimatedSprite2D.frame_changed.connect(_on_animated_sprite_2d_frame_changed)
 func _process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -132,3 +134,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == Global.playerBody:  # Check if it's the player
 		is_roaming = false
 		print("Player exited area - roaming!")
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	var current_frame = animated_sprite_2d.frame
+	var current_animation = animated_sprite_2d.animation
+	
+	if current_animation == "jump startup":
+		match current_frame:
+			16:  # Play sound on frames
+				slime_jump.play()
+				slime_jump.pitch_scale = randf_range(0.9, 1.1)

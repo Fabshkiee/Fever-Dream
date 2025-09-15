@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dusuje7l7d2ta"]
+[gd_scene load_steps=74 format=3 uid="uid://dusuje7l7d2ta"]
 
 [ext_resource type="Script" uid="uid://cjseeyerdh0yr" path="res://slime.gd" id="1_da4t2"]
 [ext_resource type="Texture2D" uid="uid://ch3cw1m38s85u" path="res://tileset/Slimes/Untitled1_20250907151111.png" id="1_jayke"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rqbmeut4qd5e" path="res://Scene/kill_zone.tscn" id="10_jrxk1"]
 [ext_resource type="AudioStream" uid="uid://3motxya38u31" path="res://SFX/Slime Death.mp3" id="12_8w6w5"]
 [ext_resource type="AudioStream" uid="uid://mlxpxv8ba7qa" path="res://SFX/Slime Jump.mp3" id="13_lrvan"]
+[ext_resource type="AudioStream" uid="uid://b7xuv6b4palc2" path="res://SFX/slime jump real.mp3" id="14_0gjuw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umduo"]
 atlas = ExtResource("2_jrxk1")
@@ -468,6 +469,11 @@ stream = ExtResource("12_8w6w5")
 stream = ExtResource("13_lrvan")
 volume_db = -5.0
 
+[node name="slime_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_0gjuw")
+volume_db = -5.0
+max_distance = 500.0
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(16, 32)
 scale = Vector2(6.45333, -5.66667)
@@ -477,6 +483,7 @@ position = Vector2(-2.6343, 4.05882)
 scale = Vector2(0.851275, 1.17215)
 shape = SubResource("RectangleShape2D_lrvan")
 
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="direction" to="." method="_on_direction_timeout"]
 [connection signal="area_entered" from="SlimeHitbox" to="." method="_on_slime_hitbox_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

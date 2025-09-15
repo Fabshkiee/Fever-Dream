@@ -155,7 +155,7 @@ func play_footstep_sound():
 	# Play a random footstep sound with slight pitch variation
 	var random_sound = run_sounds[randi() % run_sounds.size()]
 	run_sfx_1.stream = random_sound
-	run_sfx_1.pitch_scale = randf_range(0.9, 1.1)  # Slight pitch variation for natural sound
+	run_sfx_1.pitch_scale = randf_range(1, 1.5)  # Slight pitch variation for natural sound
 	run_sfx_1.play()
 
 

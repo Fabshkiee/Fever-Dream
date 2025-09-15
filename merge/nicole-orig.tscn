@@ -2717,8 +2717,8 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.0224
-scale = Vector2(0.999754, 0.999754)
+rotation = -1.08911
+scale = Vector2(0.999756, 0.999756)
 texture = ExtResource("6_2d2ei")
 offset = Vector2(340.808, -1397.47)
 
@@ -2782,7 +2782,7 @@ offset = Vector2(4.56543, 817.873)
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(-127.886, 233.184)
 rotation = 0.569808
-scale = Vector2(9.9989e-06, 9.9989e-06)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("14_hfnge")
 offset = Vector2(-853.896, 589.268)
 
@@ -2853,7 +2853,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999828, 0.999828)
+scale = Vector2(0.99983, 0.99983)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
@@ -2984,6 +2984,7 @@ volume_db = -5.0
 stream = ExtResource("21_l36ms")
 volume_db = -5.0
 pitch_scale = 0.6
+max_distance = 86.0
 
 [node name="run_sfx_2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_kjpmf")
