@@ -264,7 +264,6 @@ func _physics_process(delta: float) -> void:
 		start_attack()
 	elif Input.is_action_pressed("ui_AttackM") and is_dashing:
 		_travel("Attack_Air")
-		spray_sfx.play()
 		start_attack()
 	elif Input.is_action_just_pressed("ui_AttackM") and not is_on_floor():
 		_travel("Attack_Air")

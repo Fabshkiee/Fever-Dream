@@ -21,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cvtm4a0cx75kl" path="res://SFX/jump cut.mp3" id="19_2tsat"]
 [ext_resource type="AudioStream" uid="uid://bgbrrrs48rwuj" path="res://SFX/Run 1.mp3" id="20_d85be"]
 [ext_resource type="AudioStream" uid="uid://1fvkv1w7k3kg" path="res://SFX/Run 2.mp3" id="21_kjpmf"]
-[ext_resource type="AudioStream" uid="uid://dnxc1xh33xp0f" path="res://SFX/spray cut.mp3" id="22_kjpmf"]
+[ext_resource type="AudioStream" uid="uid://dnain6578s13i" path="res://SFX/spray-fx.wav" id="22_kd5rh"]
 [ext_resource type="AudioStream" uid="uid://cdbucnqjwx770" path="res://SFX/Heartbeat Single.mp3" id="23_kd5rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixkqr"]
@@ -2715,8 +2715,8 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.0275
-scale = Vector2(0.999757, 0.999757)
+rotation = -1.07679
+scale = Vector2(0.999758, 0.999758)
 texture = ExtResource("6_2d2ei")
 offset = Vector2(340.808, -1397.47)
 
@@ -2780,7 +2780,7 @@ offset = Vector2(4.56543, 817.873)
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(-127.886, 233.184)
 rotation = 0.569808
-scale = Vector2(9.9989e-06, 9.9989e-06)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("14_hfnge")
 offset = Vector2(-853.896, 589.268)
 
@@ -2851,7 +2851,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999831, 0.999831)
+scale = Vector2(0.999832, 0.999832)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
@@ -2982,7 +2982,7 @@ stream = ExtResource("21_kjpmf")
 volume_db = -5.0
 
 [node name="spray_sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_kjpmf")
+stream = ExtResource("22_kd5rh")
 volume_db = -5.0
 
 [node name="80_infection_sfx" type="AudioStreamPlayer2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dusuje7l7d2ta"]
+[gd_scene load_steps=73 format=3 uid="uid://dusuje7l7d2ta"]
 
 [ext_resource type="Script" uid="uid://cjseeyerdh0yr" path="res://slime.gd" id="1_da4t2"]
 [ext_resource type="Texture2D" uid="uid://ch3cw1m38s85u" path="res://tileset/Slimes/Untitled1_20250907151111.png" id="1_jayke"]
@@ -427,6 +427,9 @@ radius = 89.8053
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_da4t2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrvan"]
+size = Vector2(686.777, 88.0588)
+
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_da4t2")
 
@@ -465,5 +468,16 @@ stream = ExtResource("12_8w6w5")
 stream = ExtResource("13_lrvan")
 volume_db = -5.0
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(16, 32)
+scale = Vector2(6.45333, -5.66667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.6343, 4.05882)
+scale = Vector2(0.851275, 1.17215)
+shape = SubResource("RectangleShape2D_lrvan")
+
 [connection signal="timeout" from="direction" to="." method="_on_direction_timeout"]
 [connection signal="area_entered" from="SlimeHitbox" to="." method="_on_slime_hitbox_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

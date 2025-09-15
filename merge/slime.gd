@@ -15,7 +15,7 @@ var is_dealing_damage: bool = false
 var dir: Vector2 = Vector2.RIGHT  # Initialize with a default direction
 const gravity = 900
 var knockback_force = -50
-var is_roaming: bool = true
+var is_roaming: bool = false
 
 var player: CharacterBody2D
 var player_in_area = false
@@ -39,21 +39,23 @@ func _process(delta):
 
 func move(delta):
 	if !dead:
-		if !is_slime_chase:
-			# Chase logic - you'll need to implement what triggers this
-			velocity = dir * speed * delta
-		elif is_slime_chase and !taking_damage:
-			var dir_to_player = position.direction_to(player.position) * speed
-			velocity.x = dir_to_player.x
-			dir.x = abs(velocity.x) / velocity.x
-		elif taking_damage:
+		if taking_damage:
 			var knockback_dir = position.direction_to(player.position) * knockback_force
 			velocity.x = knockback_dir.x
-		elif is_roaming:
-			# Roaming logic
+			print("Taking damage - knockback")
+		elif is_roaming:  # Player is in area - chase!
+			var dir_to_player = position.direction_to(player.position) * speed
+			velocity.x = dir_to_player.x
+			if velocity.x != 0:
+				dir.x = sign(velocity.x)
+			print("Chasing player! Velocity: ", velocity.x)
+		else:  # Player is not in area - use direction timer to roam!
+			# This will use the dir set by the direction timer
 			velocity.x = dir.x * speed
+			print("Roaming! Direction: ", dir.x, " Velocity: ", velocity.x)
 	else:
 		velocity.x = 0
+		print("Dead - not moving")
 
 func handle_animation():
 	var anim_sprite = $AnimatedSprite2D
@@ -92,7 +94,7 @@ func handle_death():
 
 func _on_direction_timeout() -> void:
 	$direction.wait_time = choose([1.5, 2.0, 2.5])
-	if !is_slime_chase:
+	if !is_roaming:  # Only change direction when not chasing player
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0
 		
@@ -118,3 +120,15 @@ func take_damage(damage):
 		dead = true
 		# REMOVED the slime_death_sfx.play() from here - moved to handle_animation()
 	print(str(self, "current health is ", health))
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == Global.playerBody:  # Check if it's the player
+		is_roaming = true
+		print("Player entered area - chasing!")
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == Global.playerBody:  # Check if it's the player
+		is_roaming = false
+		print("Player exited area - roaming!")
