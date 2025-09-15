@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://bpux6c8yiabtv"]
+
+[ext_resource type="Script" uid="uid://bqy7nyi3db32q" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_y8rba"]
+
+[resource]
+script = ExtResource("1_y8rba")
+entries = {
+"alcohol": {
+"case_sensitive": true,
+"name": "alcohol",
+"text": "A kind of medicine-kit liquid that helps clean a hurt and get rid of germs. It evaporates very quickly, which makes your skin feel cool.",
+"title": "alcohol"
+},
+"germs": {
+"name": "germs",
+"text": "Invisible little creatures that can get inside your body and make you feel sick. You need a microscope to see them.",
+"title": "germs"
+},
+"infection": {
+"color": Color(0.980469, 0.0382996, 0.0382996, 1),
+"name": "infection",
+"text": "An illness caused by germs that have entered your body and are growing in numbers",
+"title": "infection"
+},
+"injuries": {
+"color": Color(0.953125, 0.52572, 0.0707397, 1),
+"name": "injuries",
+"text": "A pain or harm that happens to your body by accident, like when you fall off your bike.",
+"title": "injuries"
+}
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

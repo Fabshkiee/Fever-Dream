@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Combat"
+run/main_scene="uid://dbrh5t2nwor5i"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Plugin="*res://addons/dialogic/plugin.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://global.gd"
+
+[dialogic]
+
+directories/dch_directory={
+"character": "res://character.dch"
+}
+directories/dtl_directory={
+"alcohol_fact": "res://alcohol_fact.dtl"
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
