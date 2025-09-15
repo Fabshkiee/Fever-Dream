@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mlxpxv8ba7qa"
+path="res://.godot/imported/Slime Jump.mp3-079cfeac7c81c81c88020202071b3aac.mp3str"
+
+[deps]
+
+source_file="res://SFX/Slime Jump.mp3"
+dest_files=["res://.godot/imported/Slime Jump.mp3-079cfeac7c81c81c88020202071b3aac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

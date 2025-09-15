@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://d4ko2fspv56nc"]
+[gd_scene load_steps=90 format=3 uid="uid://d4ko2fspv56nc"]
 
 [ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Design/character_body_2d.gd" id="1_2tsat"]
 [ext_resource type="Shader" uid="uid://jfmg4mapf15y" path="res://levels/base_level.gdshader" id="2_2d2ei"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dnruhxs10uqrv" path="res://Character Designd/Med Char Vector/Sh1.svg" id="16_htvhf"]
 [ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="18_ud1mb"]
 [ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Character Designd/ANIMS/AttackM.res" id="19_1bmg0"]
+[ext_resource type="AudioStream" uid="uid://cvtm4a0cx75kl" path="res://SFX/jump cut.mp3" id="19_2tsat"]
+[ext_resource type="AudioStream" uid="uid://buojv8h1carjw" path="res://SFX/Run CUT.mp3" id="20_2d2ei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixkqr"]
 size = Vector2(988.709, 3336.67)
@@ -2711,8 +2713,8 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.07586
-scale = Vector2(0.999756, 0.999756)
+rotation = -1.20431
+scale = Vector2(0.999753, 0.999753)
 texture = ExtResource("6_2d2ei")
 offset = Vector2(340.808, -1397.47)
 
@@ -2847,7 +2849,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.99983, 0.99983)
+scale = Vector2(0.999827, 0.999827)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
@@ -2965,5 +2967,11 @@ zoom = Vector2(1.5, 1.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
 position = Vector2(1133.33, -397.5)
 shape = SubResource("RectangleShape2D_d85be")
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_2tsat")
+
+[node name="run_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_2d2ei")
 
 [connection signal="body_entered" from="attackArea" to="attackArea" method="_on_body_entered"]

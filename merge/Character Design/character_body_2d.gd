@@ -12,6 +12,14 @@ var is_dead: bool = false
 @onready var wrist_sprite: Sprite2D = $Character/Body/Wrist2
 var hit_effect_strength: float = 1.0
 var hit_effect_decay: float = 1.0 # how fast it fades back to 0
+@onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx
+@onready var run_sfx: AudioStreamPlayer2D = $run_sfx
+
+# Running sound variables
+var is_running: bool = false
+var step_timer: float = 0.0
+var step_interval: float = 0.3  # Time between footstep sounds
+var run_sounds: Array = []  # Will store multiple footstep variations
 
 var attack_timer: float = 0.0
 var is_attacking: bool = false
@@ -22,6 +30,19 @@ var is_attacking: bool = false
 func _ready() -> void:
 	Global.playerBody = self
 	add_to_group("player")
+	
+	# Load multiple footstep sounds for variation
+	run_sounds = [
+		preload("res://SFX/Run 1.mp3"),
+		preload("res://SFX/Run 2.mp3"),
+		#preload("res://sounds/footstep3.wav")
+	]
+	
+	# If you don't have multiple sounds, just use one
+	if run_sounds.is_empty():
+		var default_sound = preload("res://SFX/Run 1.mp3") # Fallback if you only have one sound
+		if default_sound:
+			run_sounds = [default_sound]
 	
 	# Create and setup the infection reduction timer
 	infection_reduction_timer = Timer.new()
@@ -91,9 +112,31 @@ func _process(delta):
 		hit_effect_strength = max(hit_effect_strength - delta * hit_effect_decay, 0.0)
 		wrist_sprite.material.set_shader_parameter("hit_effect", hit_effect_strength)
 		
+	# Handle running sound effects
+	if is_running and is_on_floor():
+		step_timer += delta
+		if step_timer >= step_interval:
+			play_footstep_sound()
+			step_timer = 0.0
+	else:
+		# Reset timer when not running
+		step_timer = step_interval
+		
 	# ADD THIS CHECK - Die immediately if infection reaches 100%
 	if not is_dead and infection_level >= 100.0:
 		die()
+
+
+func play_footstep_sound():
+	if run_sounds.is_empty() or not run_sfx:
+		return
+	
+	# Play a random footstep sound with slight pitch variation
+	var random_sound = run_sounds[randi() % run_sounds.size()]
+	run_sfx.stream = random_sound
+	run_sfx.pitch_scale = randf_range(0.9, 1.1)  # Slight pitch variation for natural sound
+	run_sfx.play()
+
 
 func apply_hit_effect():
 	hit_effect_strength = 1.0
@@ -175,6 +218,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 		_travel("Jump_D")
 	var input_dir := Input.get_axis("ui_left", "ui_right")
+	
+	# Update running state for sound effects
+	is_running = is_on_floor() and abs(velocity.x) > 10 and input_dir != 0
+	
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
@@ -195,6 +242,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_force
 		_travel("Jump")
+		jump_sfx.play()
 	elif Input.is_action_just_pressed("ui_AttackM") and is_on_floor() and input_dir == 0 and not is_dashing:
 		_travel("AttackM_2")
 		start_attack()
@@ -219,8 +267,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = dash_speed * facing_dir
 		_travel("Dash")
 	move_and_slide()
-	
-	
+
 
 func _travel(state: String) -> void:
 	if state_machine != null:
