@@ -13,7 +13,8 @@ var is_dead: bool = false
 var hit_effect_strength: float = 1.0
 var hit_effect_decay: float = 1.0 # how fast it fades back to 0
 @onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx
-@onready var run_sfx: AudioStreamPlayer2D = $run_sfx
+@onready var run_sfx_1: AudioStreamPlayer2D = $run_sfx_1
+@onready var spray_sfx: AudioStreamPlayer2D = $spray_sfx
 
 # Running sound variables
 var is_running: bool = false
@@ -128,14 +129,14 @@ func _process(delta):
 
 
 func play_footstep_sound():
-	if run_sounds.is_empty() or not run_sfx:
+	if run_sounds.is_empty() or not run_sfx_1:
 		return
 	
 	# Play a random footstep sound with slight pitch variation
 	var random_sound = run_sounds[randi() % run_sounds.size()]
-	run_sfx.stream = random_sound
-	run_sfx.pitch_scale = randf_range(0.9, 1.1)  # Slight pitch variation for natural sound
-	run_sfx.play()
+	run_sfx_1.stream = random_sound
+	run_sfx_1.pitch_scale = randf_range(0.9, 1.1)  # Slight pitch variation for natural sound
+	run_sfx_1.play()
 
 
 func apply_hit_effect():
@@ -165,6 +166,8 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	if run_sfx_1:
+		run_sfx_1.stop()
 	# Stop the infection reduction timer when player dies
 	if infection_reduction_timer:
 		infection_reduction_timer.stop()
@@ -245,18 +248,23 @@ func _physics_process(delta: float) -> void:
 		jump_sfx.play()
 	elif Input.is_action_just_pressed("ui_AttackM") and is_on_floor() and input_dir == 0 and not is_dashing:
 		_travel("AttackM_2")
+		spray_sfx.play()
 		start_attack()
 	elif Input.is_action_just_pressed("ui_AttackM") and is_on_floor() and input_dir != 0 and not is_dashing:
 		_travel("Run_Attack")
+		spray_sfx.play()
 		start_attack()
 	elif Input.is_action_pressed("ui_AttackM") and is_dashing:
 		_travel("Attack_Air")
+		spray_sfx.play()
 		start_attack()
 	elif Input.is_action_just_pressed("ui_AttackM") and not is_on_floor():
 		_travel("Attack_Air")
+		spray_sfx.play()
 		start_attack()
 	elif Input.is_action_pressed("ui_AttackR") and is_on_floor():
 		velocity.x = 0
+		spray_sfx.play()
 		_travel("AttackR")
 		start_attack()
 	if Input.is_action_just_pressed("ui_Dash") and not is_dashing:
@@ -309,7 +317,7 @@ func _handle_damage_target(target: Node) -> void:
 		return
 		
 	var damage = Global.playerDamageAmount
-	damage = 20
+	damage = 10
 	# Check if the target can take damage
 	if target.has_method("take_damage"):
 		# Deal damage using the global damage amount

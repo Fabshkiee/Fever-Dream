@@ -2867,7 +2867,7 @@ states/Run_Attack/position = Vector2(-37.078, -202.617)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_d2lva"), "Duck", "Idle", SubResource("AnimationNodeStateMachineTransition_4flcg"), "Idle", "Duck", SubResource("AnimationNodeStateMachineTransition_7af3r"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_3yxb7"), "Idle", "Jump_D", SubResource("AnimationNodeStateMachineTransition_hwni3"), "Jump_D", "Idle", SubResource("AnimationNodeStateMachineTransition_pcd5o"), "AttackR", "Idle", SubResource("AnimationNodeStateMachineTransition_ui3ij"), "Idle", "AttackR", SubResource("AnimationNodeStateMachineTransition_2hx0b"), "Dead", "End", SubResource("AnimationNodeStateMachineTransition_hno4q"), "Idle", "Dash", SubResource("AnimationNodeStateMachineTransition_7f4bk"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_1d5pm"), "Jump", "Dash", SubResource("AnimationNodeStateMachineTransition_cjkwj"), "Dash", "Jump", SubResource("AnimationNodeStateMachineTransition_ixkqr"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_b3dyn"), "AttackM_2", "Idle", SubResource("AnimationNodeStateMachineTransition_e3mem"), "Idle", "AttackM_2", SubResource("AnimationNodeStateMachineTransition_rcm65"), "Jump", "Jump_D", SubResource("AnimationNodeStateMachineTransition_iu5xb"), "Dash", "Jump_D", SubResource("AnimationNodeStateMachineTransition_jfs23"), "Run", "Dash", SubResource("AnimationNodeStateMachineTransition_npnyu"), "Dash", "Run", SubResource("AnimationNodeStateMachineTransition_by4k3"), "Run", "Jump_D", SubResource("AnimationNodeStateMachineTransition_mj5a2"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_nw1ut"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_x7352"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_dq4r0"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6gm7v"), "Run", "Run_Attack", SubResource("AnimationNodeStateMachineTransition_gh722"), "Run_Attack", "Run", SubResource("AnimationNodeStateMachineTransition_k301r"), "Dash", "Attack_Air", SubResource("AnimationNodeStateMachineTransition_jh1n3"), "Jump_D", "Attack_Air", SubResource("AnimationNodeStateMachineTransition_ek3kl"), "Attack_Air", "Jump_D", SubResource("AnimationNodeStateMachineTransition_gw0m8"), "Attack_Air", "Run", SubResource("AnimationNodeStateMachineTransition_b2lkh"), "Run", "Attack_Air", SubResource("AnimationNodeStateMachineTransition_0f5f2"), "Jump", "Attack_Air", SubResource("AnimationNodeStateMachineTransition_8g5ap")]
 graph_offset = Vector2(-157.995, -500.795)
 
-[node name="Nicole" type="CharacterBody2D" node_paths=PackedStringArray("flip_node")]
+[node name="Nicole2" type="CharacterBody2D" node_paths=PackedStringArray("flip_node")]
 visibility_layer = 3
 z_index = 1
 scale = Vector2(0.015, 0.015)
@@ -2924,8 +2924,8 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_bdy6j")
 position = Vector2(952.393, 552.957)
-rotation = -1.25865
-scale = Vector2(0.999595, 0.999595)
+rotation = -0.971154
+scale = Vector2(0.999596, 0.999596)
 texture = ExtResource("8_irp3r")
 offset = Vector2(363.764, -1408.17)
 
@@ -3077,7 +3077,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999831, 0.999831)
+scale = Vector2(0.999832, 0.999832)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]

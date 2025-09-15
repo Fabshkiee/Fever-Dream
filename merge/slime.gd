@@ -19,6 +19,8 @@ var is_roaming: bool = true
 
 var player: CharacterBody2D
 var player_in_area = false
+@onready var slime_death_sfx: AudioStreamPlayer2D = $slime_death_sfx
+@onready var slime_hurt_sfx: AudioStreamPlayer2D = $slime_hurt_sfx
 
 func _ready():
 	# Start the direction timer when the slime is added to the scene
@@ -60,11 +62,14 @@ func handle_animation():
 		# Play death animation immediately when dead
 		if anim_sprite.animation != "death":
 			anim_sprite.play("death")
-			# Wait for death animation to finish then handle death
+			# Play death sound here instead of in take_damage
+			if slime_death_sfx:
+				slime_death_sfx.play()
 			await get_tree().create_timer(1.0).timeout
 			handle_death()
 	elif !dead and taking_damage and !is_dealing_damage:
 		anim_sprite.play("hurt")
+		
 		await get_tree().create_timer(1.0).timeout
 		taking_damage = false
 	elif !dead and !taking_damage and !is_dealing_damage:
@@ -76,6 +81,9 @@ func handle_animation():
 	elif dead and is_roaming:
 		is_roaming = false
 		anim_sprite.play("death")
+		# Play death sound here instead of in take_damage
+		if slime_death_sfx:
+			slime_death_sfx.play()
 		await get_tree().create_timer(1.0).timeout
 		handle_death()
 		
@@ -102,8 +110,11 @@ func _on_slime_hitbox_area_entered(area: Area2D) -> void:
 		
 func take_damage(damage):
 	health -= damage
+	if slime_hurt_sfx:
+				slime_hurt_sfx.play()
 	taking_damage = true
 	if health <= health_min:
 		health = health_min
 		dead = true
+		# REMOVED the slime_death_sfx.play() from here - moved to handle_animation()
 	print(str(self, "current health is ", health))

@@ -1,6 +1,6 @@
-[gd_scene load_steps=90 format=3 uid="uid://d4ko2fspv56nc"]
+[gd_scene load_steps=92 format=3 uid="uid://d4ko2fspv56nc"]
 
-[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Design/character_body_2d.gd" id="1_2tsat"]
+[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Designd/character_body_2d.gd" id="1_2tsat"]
 [ext_resource type="Shader" uid="uid://jfmg4mapf15y" path="res://levels/base_level.gdshader" id="2_2d2ei"]
 [ext_resource type="Texture2D" uid="uid://b2trtg8kkq3u1" path="res://Character Designd/NewChar/Wrist2.png" id="3_d85be"]
 [ext_resource type="Texture2D" uid="uid://dhuejn5t7qgj" path="res://Character Designd/Med Char Vector/El2.svg" id="4_8b86k"]
@@ -19,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://der2020sl5gpd" path="res://Character Design/PC _ Computer - Die in the Dungeon_ Origins - Effects - Horizontal Slash.png" id="18_ud1mb"]
 [ext_resource type="Animation" uid="uid://xx45gxc88m7n" path="res://Character Designd/ANIMS/AttackM.res" id="19_1bmg0"]
 [ext_resource type="AudioStream" uid="uid://cvtm4a0cx75kl" path="res://SFX/jump cut.mp3" id="19_2tsat"]
-[ext_resource type="AudioStream" uid="uid://buojv8h1carjw" path="res://SFX/Run CUT.mp3" id="20_2d2ei"]
+[ext_resource type="AudioStream" uid="uid://bgbrrrs48rwuj" path="res://SFX/Run 1.mp3" id="20_d85be"]
+[ext_resource type="AudioStream" uid="uid://1fvkv1w7k3kg" path="res://SFX/Run 2.mp3" id="21_kjpmf"]
+[ext_resource type="AudioStream" uid="uid://dnxc1xh33xp0f" path="res://SFX/spray cut.mp3" id="22_kjpmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixkqr"]
 size = Vector2(988.709, 3336.67)
@@ -2668,9 +2670,8 @@ visibility_layer = 3
 scale = Vector2(0.015, 0.015)
 script = ExtResource("1_2tsat")
 speed = 120.0
-jump_force = -350.0
 gravity = 900.0
-dash_speed = 525.0
+jump_force = -350.0
 flip_node = NodePath("Character")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -2713,7 +2714,7 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.20431
+rotation = -1.08272
 scale = Vector2(0.999753, 0.999753)
 texture = ExtResource("6_2d2ei")
 offset = Vector2(340.808, -1397.47)
@@ -2971,7 +2972,16 @@ shape = SubResource("RectangleShape2D_d85be")
 [node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_2tsat")
 
-[node name="run_sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_2d2ei")
+[node name="run_sfx_1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_d85be")
+volume_db = -5.0
+
+[node name="run_sfx_2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_kjpmf")
+volume_db = -5.0
+
+[node name="spray_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_kjpmf")
+volume_db = -5.0
 
 [connection signal="body_entered" from="attackArea" to="attackArea" method="_on_body_entered"]

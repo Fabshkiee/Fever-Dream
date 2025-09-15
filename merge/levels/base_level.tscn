@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dbrh5t2nwor5i"]
+[gd_scene load_steps=31 format=4 uid="uid://dbrh5t2nwor5i"]
 
 [ext_resource type="Texture2D" uid="uid://c4jon837mdvhd" path="res://tileset/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 5.png" id="1_0rg8l"]
 [ext_resource type="Texture2D" uid="uid://bholdelxmvj6v" path="res://tileset/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 4.png" id="2_6w4ab"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dqe3emrnnik6r" path="res://Chaarc/bottle.png" id="13_jldy4"]
 [ext_resource type="PackedScene" uid="uid://d4ko2fspv56nc" path="res://nicole-orig.tscn" id="15_u35x1"]
 [ext_resource type="Script" uid="uid://bwnb80cpqm3cv" path="res://Scripts/kill_zone.gd" id="16_hd0gu"]
-[ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Designd/character_body_2d.gd" id="16_ubdnn"]
 [ext_resource type="PackedScene" uid="uid://cssq3ub6yqeel" path="res://Scene/germs.tscn" id="17_e78uj"]
 [ext_resource type="Script" uid="uid://dnva8m1uim2hk" path="res://levels/infectbar.gd" id="35_m3pju"]
 [ext_resource type="PackedScene" uid="uid://dusuje7l7d2ta" path="res://slime.tscn" id="37_7v2hh"]
@@ -1986,12 +1985,6 @@ frame_progress = 0.636661
 
 [node name="Nicole" parent="." instance=ExtResource("15_u35x1")]
 position = Vector2(170, -504)
-script = ExtResource("16_ubdnn")
-jump_extra_force = -20.0
-jump_hold_time = 0.2
-coyote_time_max = 0.15
-jump_buffer_time_max = 0.15
-dash_time = 0.5
 
 [node name="KillZone" type="Area2D" parent="."]
 collision_mask = 3

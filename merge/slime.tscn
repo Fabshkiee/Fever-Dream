@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://dusuje7l7d2ta"]
+[gd_scene load_steps=72 format=3 uid="uid://dusuje7l7d2ta"]
 
 [ext_resource type="Script" uid="uid://cjseeyerdh0yr" path="res://slime.gd" id="1_da4t2"]
 [ext_resource type="Texture2D" uid="uid://ch3cw1m38s85u" path="res://tileset/Slimes/Untitled1_20250907151111.png" id="1_jayke"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bms7e58oobw87" path="res://tileset/Slimes/Untitled8_20250909140031.png" id="5_da4t2"]
 [ext_resource type="Texture2D" uid="uid://y6760gv1hfly" path="res://tileset/Slimes/slime land.png" id="9_8w6w5"]
 [ext_resource type="PackedScene" uid="uid://rqbmeut4qd5e" path="res://Scene/kill_zone.tscn" id="10_jrxk1"]
+[ext_resource type="AudioStream" uid="uid://3motxya38u31" path="res://SFX/Slime Death.mp3" id="12_8w6w5"]
+[ext_resource type="AudioStream" uid="uid://mlxpxv8ba7qa" path="res://SFX/Slime Jump.mp3" id="13_lrvan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umduo"]
 atlas = ExtResource("2_jrxk1")
@@ -455,6 +457,12 @@ shape = SubResource("CircleShape2D_da4t2")
 position = Vector2(0, 68)
 scale = Vector2(22.62, 12.9721)
 shape = SubResource("CircleShape2D_da4t2")
+
+[node name="slime_death_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_8w6w5")
+
+[node name="slime_hurt_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_lrvan")
 
 [connection signal="timeout" from="direction" to="." method="_on_direction_timeout"]
 [connection signal="area_entered" from="SlimeHitbox" to="." method="_on_slime_hitbox_area_entered"]
