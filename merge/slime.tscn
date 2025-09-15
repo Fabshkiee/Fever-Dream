@@ -463,6 +463,7 @@ stream = ExtResource("12_8w6w5")
 
 [node name="slime_hurt_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_lrvan")
+volume_db = -5.0
 
 [connection signal="timeout" from="direction" to="." method="_on_direction_timeout"]
 [connection signal="area_entered" from="SlimeHitbox" to="." method="_on_slime_hitbox_area_entered"]

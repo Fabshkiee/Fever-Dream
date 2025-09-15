@@ -15,6 +15,7 @@ var hit_effect_decay: float = 1.0 # how fast it fades back to 0
 @onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx
 @onready var run_sfx_1: AudioStreamPlayer2D = $run_sfx_1
 @onready var spray_sfx: AudioStreamPlayer2D = $spray_sfx
+@onready var _80_infection_sfx: AudioStreamPlayer2D = $"80_infection_sfx"
 
 # Running sound variables
 var is_running: bool = false
@@ -104,6 +105,9 @@ func _on_infection_reduction_timeout():
 	if not is_dead and infection_level > 0:
 		# Reduce infection by 10% (but not below 0)
 		infection_level = max(infection_level - 10.0, 0.0)
+		if infection_level <=79:
+			_80_infection_sfx.stream.loop = false
+			_80_infection_sfx.stop()
 		print("Infection reduced by 10%: ", infection_level)
 		emit_signal("infection_changed", infection_level)
 
@@ -151,6 +155,10 @@ func apply_hit() -> void:
 	# Only increase infection, don't decrease health for death
 	apply_hit_effect()
 	infection_level = min(infection_level + 20.0, 100.0)  # Increase by 20 per hit
+	if infection_level >=80:
+		_80_infection_sfx.stream.loop = true
+		_80_infection_sfx.play()
+		
 	print("Player: apply_hit called, infection=%.1f/100" % infection_level)
 	emit_signal("infection_changed", infection_level)
 	
