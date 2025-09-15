@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://d4ko2fspv56nc"]
+[gd_scene load_steps=95 format=3 uid="uid://d4ko2fspv56nc"]
 
 [ext_resource type="Script" uid="uid://cyf7a2x3xg5xo" path="res://Character Designd/character_body_2d.gd" id="1_2tsat"]
 [ext_resource type="Shader" uid="uid://jfmg4mapf15y" path="res://levels/base_level.gdshader" id="2_2d2ei"]
@@ -21,8 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://cvtm4a0cx75kl" path="res://SFX/jump cut.mp3" id="19_2tsat"]
 [ext_resource type="AudioStream" uid="uid://bgbrrrs48rwuj" path="res://SFX/Run 1.mp3" id="20_d85be"]
 [ext_resource type="AudioStream" uid="uid://1fvkv1w7k3kg" path="res://SFX/Run 2.mp3" id="21_kjpmf"]
+[ext_resource type="AudioStream" uid="uid://cag6klibv7ve3" path="res://SFX/run 3.mp3str" id="21_l36ms"]
 [ext_resource type="AudioStream" uid="uid://dnain6578s13i" path="res://SFX/spray-fx.wav" id="22_kd5rh"]
 [ext_resource type="AudioStream" uid="uid://cdbucnqjwx770" path="res://SFX/Heartbeat Single.mp3" id="23_kd5rh"]
+[ext_resource type="AudioStream" uid="uid://1a3ccvp7xt6n" path="res://SFX/swish cut.mp3" id="24_ea02o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixkqr"]
 size = Vector2(988.709, 3336.67)
@@ -2715,8 +2717,8 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.07679
-scale = Vector2(0.999758, 0.999758)
+rotation = -1.0224
+scale = Vector2(0.999754, 0.999754)
 texture = ExtResource("6_2d2ei")
 offset = Vector2(340.808, -1397.47)
 
@@ -2780,7 +2782,7 @@ offset = Vector2(4.56543, 817.873)
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(-127.886, 233.184)
 rotation = 0.569808
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(9.9989e-06, 9.9989e-06)
 texture = ExtResource("14_hfnge")
 offset = Vector2(-853.896, 589.268)
 
@@ -2851,7 +2853,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.999832, 0.999832)
+scale = Vector2(0.999828, 0.999828)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
@@ -2972,10 +2974,16 @@ shape = SubResource("RectangleShape2D_d85be")
 
 [node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_2tsat")
+volume_db = -15.0
 
 [node name="run_sfx_1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_d85be")
 volume_db = -5.0
+
+[node name="run_sfx_3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_l36ms")
+volume_db = -5.0
+pitch_scale = 0.6
 
 [node name="run_sfx_2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_kjpmf")
@@ -2988,5 +2996,9 @@ volume_db = -5.0
 [node name="80_infection_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_kd5rh")
 volume_db = -5.0
+
+[node name="dash_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_ea02o")
+volume_db = -0.315
 
 [connection signal="body_entered" from="attackArea" to="attackArea" method="_on_body_entered"]

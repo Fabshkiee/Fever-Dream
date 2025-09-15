@@ -419,7 +419,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump startup",
-"speed": 8.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7hhig"]
@@ -435,9 +435,9 @@ script = ExtResource("1_da4t2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_umduo")
-animation = &"hurt"
-frame = 11
-frame_progress = 0.40751
+animation = &"jump startup"
+frame = 8
+frame_progress = 0.941597
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.90735e-06, 68)

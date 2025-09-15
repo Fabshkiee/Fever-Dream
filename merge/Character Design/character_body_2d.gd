@@ -16,6 +16,8 @@ var hit_effect_decay: float = 1.0 # how fast it fades back to 0
 @onready var run_sfx_1: AudioStreamPlayer2D = $run_sfx_1
 @onready var spray_sfx: AudioStreamPlayer2D = $spray_sfx
 @onready var _80_infection_sfx: AudioStreamPlayer2D = $"80_infection_sfx"
+@onready var dash_sfx: AudioStreamPlayer2D = $dash_sfx
+@onready var run_sfx_3: AudioStreamPlayer2D = $run_sfx_3
 
 # Running sound variables
 var is_running: bool = false
@@ -25,6 +27,9 @@ var run_sounds: Array = []  # Will store multiple footstep variations
 
 var attack_timer: float = 0.0
 var is_attacking: bool = false
+
+var damage = Global.playerDamageAmount
+
 
 # Add a timer for infection reduction
 @onready var infection_reduction_timer: Timer
@@ -37,12 +42,13 @@ func _ready() -> void:
 	run_sounds = [
 		preload("res://SFX/Run 1.mp3"),
 		preload("res://SFX/Run 2.mp3"),
+		preload("res://SFX/run 3.mp3str")
 		#preload("res://sounds/footstep3.wav")
 	]
 	
 	# If you don't have multiple sounds, just use one
 	if run_sounds.is_empty():
-		var default_sound = preload("res://SFX/Run 1.mp3") # Fallback if you only have one sound
+		var default_sound = preload("res://SFX/Run 2.mp3") # Fallback if you only have one sound
 		if default_sound:
 			run_sounds = [default_sound]
 	
@@ -108,6 +114,16 @@ func _on_infection_reduction_timeout():
 		if infection_level <=79:
 			_80_infection_sfx.stream.loop = false
 			_80_infection_sfx.stop()
+			
+		if infection_level >= 80:
+			damage = 5
+		elif infection_level >=50	:
+			damage = 10
+		elif infection_level >= 30:
+			damage = 15
+		elif infection_level <= 20:
+			damage = 20
+			
 		print("Infection reduced by 10%: ", infection_level)
 		emit_signal("infection_changed", infection_level)
 
@@ -281,6 +297,7 @@ func _physics_process(delta: float) -> void:
 			facing_dir = sign(input_dir)
 		velocity.x = dash_speed * facing_dir
 		_travel("Dash")
+		dash_sfx.play()
 	move_and_slide()
 
 
@@ -323,8 +340,7 @@ func _handle_damage_target(target: Node) -> void:
 	if not is_attacking:
 		return
 		
-	var damage = Global.playerDamageAmount
-	damage = 10
+	
 	# Check if the target can take damage
 	if target.has_method("take_damage"):
 		# Deal damage using the global damage amount
