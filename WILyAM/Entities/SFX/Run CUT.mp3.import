@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buojv8h1carjw"
+path="res://.godot/imported/Run CUT.mp3-a029502236fc67770cd5b4751862e718.mp3str"
+
+[deps]
+
+source_file="res://SFX/Run CUT.mp3"
+dest_files=["res://.godot/imported/Run CUT.mp3-a029502236fc67770cd5b4751862e718.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

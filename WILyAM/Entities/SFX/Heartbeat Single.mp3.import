@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvuu1fl70bi84"
+path="res://.godot/imported/Heartbeat Single.mp3-a21909a98dcefd7d5e1eddc0518e0ad4.mp3str"
+
+[deps]
+
+source_file="res://SFX/Heartbeat Single.mp3"
+dest_files=["res://.godot/imported/Heartbeat Single.mp3-a21909a98dcefd7d5e1eddc0518e0ad4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2989,7 +2989,7 @@ offset = Vector2(4.56543, 817.873)
 material = SubResource("ShaderMaterial_bdy6j")
 position = Vector2(-229.998, 147.373)
 rotation = 0.569808
-scale = Vector2(9.99567e-06, 9.99567e-06)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("15_34vw0")
 offset = Vector2(-853.896, 589.268)
 

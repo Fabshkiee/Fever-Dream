@@ -1,0 +1,430 @@
+[gd_scene load_steps=44 format=3 uid="uid://r55uhtswviji"]
+
+[ext_resource type="Texture2D" uid="uid://dky088kbg2ooi" path="res://WhiteBkg.png" id="1_ncjcv"]
+[ext_resource type="Texture2D" uid="uid://bw8ph4e2l2qcy" path="res://Character Design/Nor Char Vector/Wrist2.svg" id="2_7udt6"]
+[ext_resource type="Texture2D" uid="uid://dhuejn5t7qgj" path="res://Character Design/Med Char Vector/El2.svg" id="3_wxjxd"]
+[ext_resource type="Texture2D" uid="uid://b2lkr8uk4d2ml" path="res://NPC/Female/FShoulderB3.png" id="4_tsf25"]
+[ext_resource type="Texture2D" uid="uid://djvkn464qpl2y" path="res://NPC/Female/FShoeA.png" id="5_45wwl"]
+[ext_resource type="Texture2D" uid="uid://o3shxvrye3ot" path="res://Character Design/Med Char Vector/Kn2.svg" id="6_0si71"]
+[ext_resource type="Texture2D" uid="uid://ds2wewbu716xp" path="res://Character Design/Med Char Vector/Hi2.svg" id="7_lonbh"]
+[ext_resource type="Texture2D" uid="uid://bca2oveq0wosn" path="res://Character Design/Med Char Vector/Kn1.svg" id="8_5qbv8"]
+[ext_resource type="Texture2D" uid="uid://r8kxp00a81ck" path="res://Character Design/Med Char Vector/Hi1.svg" id="9_uhb10"]
+[ext_resource type="Texture2D" uid="uid://b18j5sd7rlmdu" path="res://NPC/Female/FKneeB.png" id="10_oswxo"]
+[ext_resource type="Texture2D" uid="uid://cc0tgfscssp0n" path="res://NPC/Female/FHipB.png" id="11_tvgq6"]
+[ext_resource type="Texture2D" uid="uid://b3g1klhkthdvv" path="res://NPC/Female/FKneeA.png" id="12_7pa6a"]
+[ext_resource type="Texture2D" uid="uid://bjxayr5eosnh7" path="res://NPC/Female/FHipA.png" id="13_22q1w"]
+[ext_resource type="Texture2D" uid="uid://gxwrch2u2xqc" path="res://Enemies/FemaleInfected/FHead3.png" id="14_kfs40"]
+[ext_resource type="Texture2D" uid="uid://cqpqc7eyv12bi" path="res://NPC/Female/FBody3.png" id="15_8ahh0"]
+[ext_resource type="Texture2D" uid="uid://cht1phjnsxjgq" path="res://Character Design/Spray.png" id="16_67o68"]
+[ext_resource type="Texture2D" uid="uid://bhuw2xiqaepmv" path="res://Character Design/Nor Char Vector/Wrist1.svg" id="17_ks5s5"]
+[ext_resource type="Texture2D" uid="uid://dhha0nda2dh5e" path="res://Character Design/Med Char Vector/El1.svg" id="18_pa0up"]
+[ext_resource type="Texture2D" uid="uid://g5s6rgunusdu" path="res://NPC/Female/FShoulderA3.png" id="19_jey0e"]
+[ext_resource type="Animation" uid="uid://brji8cft1wcjl" path="res://NPC/Walk.res" id="20_fr8m2"]
+[ext_resource type="Animation" uid="uid://bfd8blyukkai4" path="res://Enemies/RESET.res" id="20_fr8ow"]
+[ext_resource type="Animation" uid="uid://c1qiyvtjj6ncs" path="res://NPC/Run.res" id="21_ncjcv"]
+[ext_resource type="Animation" uid="uid://bkr4sppghfmbd" path="res://Enemies/Walk_Drag.res" id="23_ei54s"]
+[ext_resource type="Animation" uid="uid://m8l3y5ltdxrg" path="res://Enemies/Melee.res" id="24_82v7b"]
+[ext_resource type="Animation" uid="uid://dlf0up6c3vet5" path="res://Enemies/Range.res" id="25_o0qtp"]
+[ext_resource type="Animation" uid="uid://d1tnar3wfo15k" path="res://Enemies/Dead.res" id="26_ey4pj"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_5k0ue"]
+enabled = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlfxr"]
+_data = {
+&"Dead": ExtResource("26_ey4pj"),
+&"Melee": ExtResource("24_82v7b"),
+&"RESET": ExtResource("20_fr8ow"),
+&"Range": ExtResource("25_o0qtp"),
+&"Run": ExtResource("21_ncjcv"),
+&"Walk": ExtResource("20_fr8m2"),
+&"Walk_Drag": ExtResource("23_ei54s")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sed2b"]
+animation = &"Melee"
+advance_on_start = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ncjcv"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82v7b"]
+animation = &"Range"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7udt6"]
+animation = &"Walk"
+advance_on_start = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wxjxd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tsf25"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45wwl"]
+xfade_time = 0.25
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0si71"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lonbh"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5qbv8"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uhb10"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o0qtp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ey4pj"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sed2b"]
+states/Melee/node = SubResource("AnimationNodeAnimation_sed2b")
+states/Melee/position = Vector2(638, -70.1592)
+states/RESET/node = SubResource("AnimationNodeAnimation_ncjcv")
+states/RESET/position = Vector2(462, 91)
+states/Range/node = SubResource("AnimationNodeAnimation_82v7b")
+states/Range/position = Vector2(706, 10.841)
+states/Walk_Drag/node = SubResource("AnimationNodeAnimation_7udt6")
+states/Walk_Drag/position = Vector2(392, -70.1592)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_wxjxd"), "RESET", "Walk_Drag", SubResource("AnimationNodeStateMachineTransition_tsf25"), "Walk_Drag", "RESET", SubResource("AnimationNodeStateMachineTransition_45wwl"), "Walk_Drag", "Melee", SubResource("AnimationNodeStateMachineTransition_0si71"), "Melee", "Walk_Drag", SubResource("AnimationNodeStateMachineTransition_lonbh"), "Melee", "RESET", SubResource("AnimationNodeStateMachineTransition_5qbv8"), "RESET", "Melee", SubResource("AnimationNodeStateMachineTransition_uhb10"), "RESET", "Range", SubResource("AnimationNodeStateMachineTransition_o0qtp"), "Range", "RESET", SubResource("AnimationNodeStateMachineTransition_ey4pj")]
+graph_offset = Vector2(0, -109.159)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fr8m2"]
+radius = 2.7896e+07
+height = 3.14189e+08
+
+[node name="Female" type="CharacterBody2D"]
+visibility_layer = 3
+scale = Vector2(0.2115, 0.2115)
+metadata/_edit_horizontal_guides_ = [266.0]
+
+[node name="WhiteBkg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(871.794, 1142.72)
+scale = Vector2(72.0685, 49.2778)
+texture = ExtResource("1_ncjcv")
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="Body" type="Node2D" parent="Character"]
+position = Vector2(11.1324, -198.621)
+rotation = 0.872156
+scale = Vector2(0.999926, 0.999926)
+
+[node name="Wrist2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(836.436, -1050.93)
+rotation = -0.822445
+scale = Vector2(0.999577, 0.999577)
+texture = ExtResource("2_7udt6")
+offset = Vector2(-830, 530)
+
+[node name="Elbow2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(517.014, -864.481)
+rotation = -0.566628
+scale = Vector2(0.999616, 0.999616)
+texture = ExtResource("3_wxjxd")
+offset = Vector2(-466.667, 526.667)
+
+[node name="Shoulder2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(236.528, -867.996)
+rotation = -0.192837
+scale = Vector2(0.999761, 0.999761)
+texture = ExtResource("4_tsf25")
+offset = Vector2(-180, 573.333)
+
+[node name="Shoe2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(1018.33, 433.663)
+rotation = -1.07296
+scale = Vector2(0.999606, 0.999606)
+texture = ExtResource("5_45wwl")
+offset = Vector2(363.764, -1408.17)
+
+[node name="Knee2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(709.535, 101.489)
+rotation = -0.823955
+scale = Vector2(0.999767, 0.999767)
+texture = ExtResource("6_0si71")
+offset = Vector2(-153.333, -900)
+
+[node name="Hip2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(286.922, -0.269638)
+rotation = -1.17989
+scale = Vector2(0.999914, 0.999914)
+texture = ExtResource("7_lonbh")
+offset = Vector2(-66.6665, -480)
+
+[node name="Shoe1" type="Sprite2D" parent="Character/Body"]
+position = Vector2(561.053, 929.806)
+rotation = -0.884991
+scale = Vector2(0.99961, 0.99961)
+texture = ExtResource("5_45wwl")
+offset = Vector2(260, -1343.33)
+
+[node name="Knee1" type="Sprite2D" parent="Character/Body"]
+position = Vector2(289.598, 554.39)
+rotation = -0.678702
+scale = Vector2(0.999774, 0.999774)
+texture = ExtResource("8_5qbv8")
+offset = Vector2(253.333, -873.333)
+
+[node name="Hip1" type="Sprite2D" parent="Character/Body"]
+position = Vector2(125.585, 127.919)
+rotation = -0.678702
+scale = Vector2(0.999921, 0.999921)
+texture = ExtResource("9_uhb10")
+offset = Vector2(140, -433.333)
+
+[node name="FKneeB" type="Sprite2D" parent="Character/Body"]
+position = Vector2(693.098, 147.742)
+rotation = -0.759319
+scale = Vector2(0.999756, 0.999756)
+texture = ExtResource("10_oswxo")
+offset = Vector2(-190.071, -922.082)
+
+[node name="FHipB" type="Sprite2D" parent="Character/Body"]
+position = Vector2(279.673, 0.0182037)
+rotation = -0.987643
+scale = Vector2(0.999913, 0.999913)
+texture = ExtResource("11_tvgq6")
+offset = Vector2(-113.58, -534.116)
+
+[node name="FKneeA" type="Sprite2D" parent="Character/Body"]
+position = Vector2(334.869, 569.55)
+rotation = -0.872156
+scale = Vector2(0.999763, 0.999763)
+texture = ExtResource("12_7pa6a")
+offset = Vector2(273.133, -890.033)
+
+[node name="FHipA" type="Sprite2D" parent="Character/Body"]
+position = Vector2(133.184, 135.44)
+rotation = -0.872156
+scale = Vector2(0.999924, 0.999924)
+texture = ExtResource("13_22q1w")
+offset = Vector2(77.4492, -477.858)
+
+[node name="Head" type="Sprite2D" parent="Character/Body"]
+position = Vector2(-46.2968, -1084.33)
+rotation = -0.639901
+scale = Vector2(0.99975, 0.99975)
+texture = ExtResource("14_kfs40")
+offset = Vector2(4.56543, 817.873)
+
+[node name="Body2" type="Sprite2D" parent="Character/Body"]
+position = Vector2(248.381, 32.2814)
+rotation = -0.2038
+scale = Vector2(0.999915, 0.999915)
+texture = ExtResource("15_8ahh0")
+offset = Vector2(-49.9998, -326.667)
+
+[node name="Melee" type="Sprite2D" parent="Character/Body"]
+position = Vector2(-127.891, 233.14)
+rotation = 0.569808
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("16_67o68")
+offset = Vector2(-853.896, 589.268)
+
+[node name="Wrist1" type="Sprite2D" parent="Character/Body"]
+position = Vector2(129.359, -208.703)
+rotation = -2.46591
+scale = Vector2(0.999565, 0.999565)
+texture = ExtResource("17_ks5s5")
+offset = Vector2(876.667, 370)
+
+[node name="Elbow1" type="Sprite2D" parent="Character/Body"]
+position = Vector2(-87.8588, -435.53)
+rotation = -2.0712
+scale = Vector2(0.99961, 0.99961)
+texture = ExtResource("18_pa0up")
+offset = Vector2(586.667, 470)
+
+[node name="Shoulder1" type="Sprite2D" parent="Character/Body"]
+position = Vector2(-193.559, -731.939)
+rotation = -0.285366
+scale = Vector2(0.999762, 0.999762)
+texture = ExtResource("19_jey0e")
+offset = Vector2(250, 510)
+
+[node name="Movements" type="Skeleton2D" parent="Character"]
+modification_stack = SubResource("SkeletonModificationStack2D_5k0ue")
+
+[node name="Hip" type="Bone2D" parent="Character/Movements"]
+position = Vector2(-6.04266, -20.1973)
+rotation = 0.193454
+scale = Vector2(0.999847, 0.999847)
+rest = Transform2D(0.981197, 0.19222, -0.19222, 0.981197, -6.04266, -20.1973)
+
+[node name="Knee" type="Bone2D" parent="Character/Movements/Hip"]
+position = Vector2(-140.077, 434.959)
+scale = Vector2(0.999853, 0.999853)
+rest = Transform2D(0.999858, 0, 0, 0.999858, -140.077, 434.959)
+
+[node name="Ankle" type="Bone2D" parent="Character/Movements/Hip/Knee"]
+position = Vector2(-24.388, 462.739)
+rotation = -0.206288
+scale = Vector2(0.999836, 0.999836)
+rest = Transform2D(0.978637, -0.204794, 0.204794, 0.978637, -24.388, 462.739)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip/Knee/Ankle"]
+remote_path = NodePath("../../../../../Body/Shoe1")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip/Knee"]
+remote_path = NodePath("../../../../Body/Knee1")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip"]
+remote_path = NodePath("../../../Body/Hip1")
+
+[node name="Hip2" type="Bone2D" parent="Character/Movements"]
+position = Vector2(195.867, 20.8907)
+rotation = -0.307735
+scale = Vector2(0.99984, 0.99984)
+rest = Transform2D(0.952872, -0.302853, 0.302853, 0.952872, 195.867, 20.8907)
+
+[node name="Knee2" type="Bone2D" parent="Character/Movements/Hip2"]
+position = Vector2(66.9489, 429.542)
+rotation = 0.355937
+scale = Vector2(0.999853, 0.999853)
+rest = Transform2D(0.937182, 0.348417, -0.348417, 0.937182, 66.9489, 429.542)
+
+[node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
+position = Vector2(-33.9981, 452.364)
+rotation = -0.249002
+scale = Vector2(0.999838, 0.999838)
+rest = Transform2D(0.968999, -0.246396, 0.246396, 0.968999, -33.9981, 452.364)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
+remote_path = NodePath("../../../../../Body/Shoe2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2"]
+remote_path = NodePath("../../../../Body/Knee2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2"]
+remote_path = NodePath("../../../Body/Hip2")
+
+[node name="Body" type="Bone2D" parent="Character/Movements"]
+position = Vector2(146.157, 12.3157)
+rotation = 0.668356
+scale = Vector2(0.999841, 0.999841)
+rest = Transform2D(0.784713, 0.619595, -0.619595, 0.784713, 146.157, 12.3157)
+
+[node name="Shoulder" type="Bone2D" parent="Character/Movements/Body"]
+position = Vector2(-278.146, -837.921)
+rotation = -1.65236
+scale = Vector2(0.999848, 0.999848)
+rest = Transform2D(-0.0814581, -0.996533, 0.996533, -0.0814581, -278.146, -837.921)
+
+[node name="Elbow" type="Bone2D" parent="Character/Movements/Body/Shoulder"]
+position = Vector2(-314.252, 17.9905)
+rotation = -0.215048
+scale = Vector2(0.999848, 0.999848)
+rest = Transform2D(0.976822, -0.213363, 0.213363, 0.976822, -314.252, 17.9905)
+
+[node name="Wrist" type="Bone2D" parent="Character/Movements/Body/Shoulder/Elbow"]
+position = Vector2(-303.351, 81.7876)
+rotation = -0.394706
+scale = Vector2(0.999955, 0.999955)
+rest = Transform2D(0.923068, -0.38452, 0.38452, 0.923068, -303.351, 81.7876)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Shoulder/Elbow/Wrist"]
+remote_path = NodePath("../../../../../../Body/Wrist1")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Shoulder/Elbow"]
+remote_path = NodePath("../../../../../Body/Elbow1")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Shoulder"]
+rotation = 1.57079
+remote_path = NodePath("../../../../Body/Shoulder1")
+
+[node name="Shoulder2" type="Bone2D" parent="Character/Movements/Body"]
+position = Vector2(170.616, -884.12)
+rotation = 0.0109625
+scale = Vector2(0.999846, 0.999846)
+rest = Transform2D(0.999787, 0.0109606, -0.0109606, 0.999787, 170.616, -884.12)
+
+[node name="Elbow2" type="Bone2D" parent="Character/Movements/Body/Shoulder2"]
+position = Vector2(274.679, 57.2172)
+rotation = -0.373791
+scale = Vector2(0.999855, 0.999855)
+rest = Transform2D(0.930821, -0.365097, 0.365097, 0.930821, 274.679, 57.2172)
+
+[node name="Wrist2" type="Bone2D" parent="Character/Movements/Body/Shoulder2/Elbow2"]
+position = Vector2(369.729, 14.1555)
+rotation = -0.255817
+scale = Vector2(0.999961, 0.999961)
+rest = Transform2D(0.967419, -0.253026, 0.253026, 0.967419, 369.729, 14.1555)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Shoulder2/Elbow2/Wrist2"]
+remote_path = NodePath("../../../../../../Body/Wrist2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Shoulder2/Elbow2"]
+remote_path = NodePath("../../../../../Body/Elbow2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Shoulder2"]
+remote_path = NodePath("../../../../Body/Shoulder2")
+
+[node name="Head" type="Bone2D" parent="Character/Movements/Body"]
+position = Vector2(-62.5918, -1153.24)
+rotation = -0.436102
+scale = Vector2(0.999835, 0.999835)
+rest = Transform2D(0.90625, -0.422337, 0.422337, 0.90625, -62.5918, -1153.24)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body/Head"]
+remote_path = NodePath("../../../../Body/Head")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Body"]
+remote_path = NodePath("../../../Body/Body2")
+
+[node name="Dress" type="Bone2D" parent="Character/Movements"]
+position = Vector2(158.197, 5.04645)
+rest = Transform2D(1, 0, 0, 1, 158.197, 5.04645)
+
+[node name="HipA" type="Bone2D" parent="Character/Movements/Dress"]
+position = Vector2(-165.111, -14.588)
+scale = Vector2(0.99985, 0.99985)
+rest = Transform2D(0.999857, 8.93942e-08, -8.93942e-08, 0.999857, -165.111, -14.588)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Dress/HipA"]
+remote_path = NodePath("../../../../Body/FHipA")
+
+[node name="KneeA" type="Bone2D" parent="Character/Movements/Dress/HipA"]
+position = Vector2(-202.702, 433.676)
+scale = Vector2(0.999839, 0.999839)
+rest = Transform2D(0.999838, 0, 0, 0.999838, -202.702, 433.676)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Dress/HipA/KneeA"]
+remote_path = NodePath("../../../../../Body/FKneeA")
+
+[node name="HipB" type="Bone2D" parent="Character/Movements/Dress"]
+position = Vector2(32.7875, 10.479)
+rotation = -0.115487
+scale = Vector2(0.999839, 0.999839)
+rest = Transform2D(0.993183, -0.115212, 0.115212, 0.993183, 32.7875, 10.479)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Dress/HipB"]
+remote_path = NodePath("../../../../Body/FHipB")
+
+[node name="KneeB" type="Bone2D" parent="Character/Movements/Dress/HipB"]
+position = Vector2(104.356, 426.481)
+rotation = 0.228324
+scale = Vector2(0.999843, 0.999843)
+rest = Transform2D(0.973894, 0.22631, -0.22631, 0.973894, 104.356, 426.481)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Dress/HipB/KneeB"]
+remote_path = NodePath("../../../../../Body/FKneeB")
+
+[node name="Movements3" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qlfxr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+reset_on_save = false
+tree_root = SubResource("AnimationNodeStateMachine_sed2b")
+anim_player = NodePath("../Movements3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(89.8345, -156.028)
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("CapsuleShape2D_fr8m2")
+one_way_collision = true

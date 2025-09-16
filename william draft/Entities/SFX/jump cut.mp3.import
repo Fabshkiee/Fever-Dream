@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvtm4a0cx75kl"
+path="res://.godot/imported/jump cut.mp3-9fab528aad52966dde35eadfe2ae8dae.mp3str"
+
+[deps]
+
+source_file="res://SFX/jump cut.mp3"
+dest_files=["res://.godot/imported/jump cut.mp3-9fab528aad52966dde35eadfe2ae8dae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

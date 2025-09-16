@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=3 uid="uid://bl7ft4xn3xl6x"]
+
+[ext_resource type="Shader" uid="uid://d25n8tpuv3m31" path="res://Scene/main_menu_scroll.gdshader" id="1_hptlk"]
+[ext_resource type="Texture2D" uid="uid://dtjb4kgqucqgw" path="res://Menu/FEVER BG.png" id="2_oqads"]
+[ext_resource type="Texture2D" uid="uid://063idvnxn2e5" path="res://Menu/FEVER (2).png" id="3_hptlk"]
+[ext_resource type="Texture2D" uid="uid://4iol1r0ak32g" path="res://Menu/BUTTON.png" id="4_hptlk"]
+[ext_resource type="PackedScene" uid="uid://bar2bhy1mtejr" path="res://Scene/color_rect.tscn" id="4_kqsxi"]
+[ext_resource type="Texture2D" uid="uid://c3pnbi7jv1lbs" path="res://Menu/Buttons.png" id="4_oqads"]
+[ext_resource type="AudioStream" uid="uid://co1o0452gcjdj" path="res://SFX/New Song ni Gru (2).mp3" id="7_oqads"]
+
+[sub_resource type="GDScript" id="GDScript_pvidh"]
+script/source = "extends Control
+
+var button_type = null
+var target_db := 0.0
+var fade_speed := 5.0
+@onready var bg_music: AudioStreamPlayer2D = $bg_music
+
+func _process(delta: float) -> void:
+	if abs(bg_music.volume_db - target_db) > 0.1:
+		bg_music.volume_db = lerp(
+			bg_music.volume_db, target_db, delta * (fade_speed /10.0)
+		)
+func _on_start_pressed() -> void:
+	button_type = \"start\"
+	target_db = -100.0
+	$FadeTransition.show()
+	$FadeTransition/Timer.start()
+	$FadeTransition/AnimationPlayer.play(\"fade_out\")
+
+func _on_option_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_timer_timeout() -> void:
+	if button_type == \"start\":
+		get_tree().change_scene_to_file(\"res://levels/base_level.tscn\")
+		
+	elif button_type == \"options\":
+		pass
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2f1d"]
+shader = ExtResource("1_hptlk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqsxi"]
+texture = ExtResource("3_hptlk")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqads"]
+atlas = ExtResource("4_oqads")
+region = Rect2(112.716, 512.682, 301.055, 93.5082)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2f1d"]
+atlas = ExtResource("4_hptlk")
+region = Rect2(117.679, 326.152, 289.508, 85.871)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejkra"]
+atlas = ExtResource("4_oqads")
+region = Rect2(114.336, 319.922, 293.625, 92.9905)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvidh"]
+atlas = ExtResource("4_oqads")
+region = Rect2(107.919, 607.234, 304.845, 96.8331)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hptlk"]
+atlas = ExtResource("4_hptlk")
+region = Rect2(116.723, 419.88, 290.314, 85.5907)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yok32"]
+atlas = ExtResource("4_oqads")
+region = Rect2(114.268, 417.788, 293.625, 90.7362)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_pvidh")
+
+[node name="BG" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_s2f1d")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.669977, 0.669977)
+texture = ExtResource("2_oqads")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1284.0
+offset_bottom = 721.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kqsxi")
+
+[node name="START" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 337.0
+offset_right = 437.0
+offset_bottom = 421.0
+scale = Vector2(0.757881, 0.757881)
+texture_normal = SubResource("AtlasTexture_oqads")
+texture_pressed = SubResource("AtlasTexture_s2f1d")
+texture_hover = SubResource("AtlasTexture_ejkra")
+
+[node name="OPTION" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 432.0
+offset_right = 437.0
+offset_bottom = 518.0
+scale = Vector2(0.759053, 0.759053)
+texture_normal = SubResource("AtlasTexture_pvidh")
+texture_pressed = SubResource("AtlasTexture_hptlk")
+texture_hover = SubResource("AtlasTexture_yok32")
+
+[node name="EXIT" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FadeTransition" parent="." instance=ExtResource("4_kqsxi")]
+visible = false
+layout_mode = 0
+
+[node name="Timer" type="Timer" parent="FadeTransition"]
+wait_time = 2.5
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oqads")
+volume_db = -50.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="OPTION" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="EXIT" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="FadeTransition/Timer" to="." method="_on_timer_timeout"]

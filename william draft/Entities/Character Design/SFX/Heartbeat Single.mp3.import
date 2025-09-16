@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdbucnqjwx770"
+path="res://.godot/imported/Heartbeat Single.mp3-c918169198a1fee57b2d937ff8ca1c17.mp3str"
+
+[deps]
+
+source_file="res://Character Design/SFX/Heartbeat Single.mp3"
+dest_files=["res://.godot/imported/Heartbeat Single.mp3-c918169198a1fee57b2d937ff8ca1c17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

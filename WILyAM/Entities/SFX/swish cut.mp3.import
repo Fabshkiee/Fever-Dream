@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1a3ccvp7xt6n"
+path="res://.godot/imported/swish cut.mp3-0a5a51275c6f74dea5c949bb868b3cd6.mp3str"
+
+[deps]
+
+source_file="res://SFX/swish cut.mp3"
+dest_files=["res://.godot/imported/swish cut.mp3-0a5a51275c6f74dea5c949bb868b3cd6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

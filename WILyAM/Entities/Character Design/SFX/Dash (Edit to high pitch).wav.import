@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5nqm8ynle8qd"
+path="res://.godot/imported/Dash (Edit to high pitch).wav-625a4a5473be1c638ec2dd5d86f95a5e.sample"
+
+[deps]
+
+source_file="res://Character Design/SFX/Dash (Edit to high pitch).wav"
+dest_files=["res://.godot/imported/Dash (Edit to high pitch).wav-625a4a5473be1c638ec2dd5d86f95a5e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

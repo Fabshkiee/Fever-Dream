@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3gjvciph0w7v"]
+
+[ext_resource type="Texture2D" uid="uid://s224e4t6um0r" path="res://SNES_-_Out_to_Lunch_-_Enemies_-_Bacteria-removebg-preview.png" id="1_wjc00"]
+[ext_resource type="PackedScene" uid="uid://yeu2ora00vd4" path="res://Scene/kill_zone.tscn" id="2_xgw6v"]
+
+[sub_resource type="GDScript" id="GDScript_wjc00"]
+script/source = "extends Node2D
+
+const SPEED = 60
+var direction = 1
+
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _process(delta):
+	if ray_cast_right.is_colliding():
+		direction = -1
+	if ray_cast_left.is_colliding():
+		direction = 1
+		
+	position.x += direction * SPEED * delta
+	_set_flip_x(direction)
+
+func _set_flip_x(sign_x: int) -> void:
+	animated_sprite.flip_h = (sign_x < 0)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5n0p"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(0, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gsrc"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(33, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x72rh"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(66, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxcjf"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(99, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdhx3"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(132, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng6t4"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(165, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31n15"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(198, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nk8i"]
+atlas = ExtResource("1_wjc00")
+region = Rect2(231, 0, 33, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07vsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5n0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gsrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x72rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxcjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdhx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng6t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31n15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nk8i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0jae"]
+
+[node name="GERMS" type="Node2D"]
+script = SubResource("GDScript_wjc00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.19209e-07, -4)
+scale = Vector2(1.09091, 1.01351)
+sprite_frames = SubResource("SpriteFrames_07vsy")
+autoplay = "default"
+frame = 1
+frame_progress = 0.875713
+flip_h = true
+
+[node name="KillZone" parent="." instance=ExtResource("2_xgw6v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("CircleShape2D_d0jae")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(19, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-24, 0)

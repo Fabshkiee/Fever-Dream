@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4jk2mxm7lpgx"
+path="res://.godot/imported/Water Move (259).mp3-2bbac5af3f18161a72295f09a41c1811.mp3str"
+
+[deps]
+
+source_file="res://Character Design/SFX/Water Move (259).mp3"
+dest_files=["res://.godot/imported/Water Move (259).mp3-2bbac5af3f18161a72295f09a41c1811.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

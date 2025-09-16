@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvgtdq1rv8s8b"]
+
+[ext_resource type="AudioStream" uid="uid://dbat7gtfm6nho" path="res://SFX/Run.wav" id="1_px3s2"]
+
+[node name="AudioManager" type="Node2D"]
+
+[node name="Run" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_px3s2")
+pitch_scale = 1.5
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b32johuimoccp"
+path="res://.godot/imported/Level 1 Random Noise.mp3-520f4ce24557f946ff41b391a3ed6cf1.mp3str"
+
+[deps]
+
+source_file="res://SFX/Level 1 Random Noise.mp3"
+dest_files=["res://.godot/imported/Level 1 Random Noise.mp3-520f4ce24557f946ff41b391a3ed6cf1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

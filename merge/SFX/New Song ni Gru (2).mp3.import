@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0gyafpo0vg3k"
+path="res://.godot/imported/New Song ni Gru (2).mp3-52f26178e62141577d237a7b5360b96f.mp3str"
+
+[deps]
+
+source_file="res://SFX/New Song ni Gru (2).mp3"
+dest_files=["res://.godot/imported/New Song ni Gru (2).mp3-52f26178e62141577d237a7b5360b96f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

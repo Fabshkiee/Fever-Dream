@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7nrei2tnftgb"]
+
+[ext_resource type="PackedScene" uid="uid://uelh2epkpfcf" path="res://Maps/levels/prologue.tscn" id="1_2faqc"]
+[ext_resource type="PackedScene" path="res://Character Design/Nicole.tscn" id="2_2faqc"]
+
+[node name="Level 0" type="Node2D"]
+
+[node name="Prologue" parent="." instance=ExtResource("1_2faqc")]
+
+[node name="Nicole" parent="." groups=["player"] instance=ExtResource("2_2faqc")]
+position = Vector2(549, -81)

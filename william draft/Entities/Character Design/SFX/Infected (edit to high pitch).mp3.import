@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfvsucwx0pcos"
+path="res://.godot/imported/Infected (edit to high pitch).mp3-55e3ced0014156a0fd434baed620d14a.mp3str"
+
+[deps]
+
+source_file="res://Character Design/SFX/Infected (edit to high pitch).mp3"
+dest_files=["res://.godot/imported/Infected (edit to high pitch).mp3-55e3ced0014156a0fd434baed620d14a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

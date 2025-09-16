@@ -2673,8 +2673,8 @@ visibility_layer = 3
 scale = Vector2(0.015, 0.015)
 script = ExtResource("1_2tsat")
 speed = 120.0
-gravity = 900.0
 jump_force = -350.0
+gravity = 900.0
 flip_node = NodePath("Character")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -2717,8 +2717,8 @@ offset = Vector2(-180, 573.333)
 [node name="Shoe2" type="Sprite2D" parent="Character/Body"]
 material = SubResource("ShaderMaterial_7v2hh")
 position = Vector2(1054.57, 638.786)
-rotation = -1.08911
-scale = Vector2(0.999756, 0.999756)
+rotation = -0.833112
+scale = Vector2(0.999755, 0.999755)
 texture = ExtResource("6_2d2ei")
 offset = Vector2(340.808, -1397.47)
 
@@ -2853,7 +2853,7 @@ rest = Transform2D(0.973995, 0.226333, -0.226333, 0.973995, 66.9489, 429.542)
 [node name="Ankle2" type="Bone2D" parent="Character/Movements/Hip2/Knee2"]
 position = Vector2(-33.9981, 452.364)
 rotation = -0.112323
-scale = Vector2(0.99983, 0.99983)
+scale = Vector2(0.999829, 0.999829)
 rest = Transform2D(0.991284, -0.130471, 0.130471, 0.991284, -33.9981, 452.364)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Character/Movements/Hip2/Knee2/Ankle2"]
